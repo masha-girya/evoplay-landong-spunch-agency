@@ -1,21 +1,15 @@
+import { Button } from "@components/button";
 import React from "react";
-
-import { Cards, Footer, Header, Main } from "@components/scss";
 
 const Home: React.FC = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-      }}
-    >
-      <Header />
-      <Main />
-      <Cards />
-      <Footer />
-    </div>
+    <>
+      <h1>Infinite AI Driven Intelligence</h1>
+      <Button name="Button mail" onClick={() => {}} />
+      <Button variant="secondary" name="Button mail" onClick={() => {}} />
+      <Button variant="textMain" name="Button mail" onClick={() => {}} />
+      <Button variant="textSecondary" name="Button mail" onClick={() => {}} />
+    </>
   );
 };
 
