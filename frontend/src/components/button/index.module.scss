@@ -1,4 +1,4 @@
-// @import "src/styles/mixins.scss";
+// @use "src/styles/mixins.scss" as mixins;
 
 .button {
   display: flex;
@@ -17,9 +17,7 @@
   &__name {
     white-space: nowrap;
     font-size: 16px;
-    font-weight: 700;
     line-height: normal;
-    letter-spacing: 0.5px;
     transition: all ease-in-out 0.2s;
 
     &_invisible {
@@ -28,7 +26,6 @@
   }
 
   &--primary {
-    // min-width: 100%;
     width: max-content;
     height: 53px;
     padding: 16.8px 40px;
@@ -36,16 +33,32 @@
     background: #4ECDC4;
 
     &__name {
+      font-weight: 500;
       color: #0A0A0B;
     }
 
-    &:hover, &:active {
+    &:hover, &:active, &_active {
+      box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
+    }
+  }
+
+  &--middle {
+    padding: 20px 50px;
+    border-radius: 10px;
+    background: #4ECDC4;
+
+    &__name {
+      color: #0A0A0B;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &:hover, &:active, &_active {
       box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
     }
   }
 
   &--secondary {
-    // min-width: 100%;
     width: max-content;
     height: 53px;
     padding: 16.8px 40px;
@@ -60,7 +73,7 @@
       font-weight: 400;
     }
 
-    &:hover, &:active {
+    &:hover, &:active, &_active {
       background: #4ECDC4;
       box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
 
@@ -71,7 +84,6 @@
   }
 
   &--textMain {
-    // min-width: 100%;
     width: max-content;
     height: max-content;
     padding: 10px;
@@ -84,7 +96,7 @@
       font-weight: 500;
     }
 
-    &:hover, &:active {
+    &:hover, &:active, &_active {
       border-bottom: 1px solid #4ECDC4;
 
       .button--textMain__name {
@@ -94,7 +106,6 @@
   }
 
   &--textSecondary {
-    // min-width: 100%;
     width: max-content;
     height: max-content;
     padding: 10px;
@@ -107,7 +118,7 @@
       font-weight: 500;
     }
 
-    &:hover, &:active {
+    &:hover, &:active, &_active {
       .button--textSecondary__name {
         color: #4ECDC4;
       }
@@ -116,9 +127,6 @@
 
   &_disabled {
     cursor: default;
-
-    &:hover {
-    }
   }
 }
 

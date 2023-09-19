@@ -1,0 +1,50 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.banner {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__imgBox {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__shieldImg {
+    position: absolute;
+    z-index: 1;
+    right: 246px;
+    top: 21%;
+    margin: auto;
+  }
+
+  &__robotImg {
+    position: absolute;
+    z-index: 0;
+    right: 0%;
+    top: 50%;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    padding-left: 64px;
+
+    h1 {
+      @include mixins.mainTitle();
+      margin-bottom: 26px;
+    }
+
+    p {
+      color: #FFFFFF;
+      @include mixins.bodyText();
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+  }
+}

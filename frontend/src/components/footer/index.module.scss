@@ -1,0 +1,35 @@
+.footer {
+  background: #030C1D;
+
+  &__container {
+    padding: 40px 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    margin-bottom: 30px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 26px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.30);
+    width: 100%;
+
+    &__rights {
+      display: flex;
+      align-items: center;
+      column-gap: 14px;
+    }
+
+    &__socials {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+    }
+  }
+}
