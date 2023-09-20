@@ -1,37 +1,41 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Transition } from "react-transition-group";
 import { Button } from "@components/button";
 import { SERVICES, SERVICES_TEXT } from "src/constants";
 import styles from "./index.module.scss";
 import RobotImg from "./assets/Robot.png";
 import classNames from "classnames";
+import { Service } from "./service";
+import { useDevice } from "src/hooks/useDevice";
 
 export const Services = () => {
   const [currService, setCurrService] = useState(SERVICES[0]);
   const [isOnChange, setIsOnChange] = useState(false);
-  const transRef = useRef<any | null>(null);
-
-  const duration = useMemo(() => {
-    return 300;
-  }, []);
-
-  const defaultStyles = {
-    opacity: 0,
-    transition: `opacity ${duration}s ease-in`,
-  };
-
-  const transitionStyles: any = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 1 },
-    exited: { opacity: 0 },
-  };
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<any | null>(null);
+  const { isMobile } = useDevice();
 
   const handleChoose = useCallback((item: (typeof SERVICES)[0]) => {
     setIsOnChange(true);
     setCurrService(item);
     setTimeout(() => setIsOnChange(false), 100);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ref.current) {
+        if(window.scrollY >= (isMobile ? 900 : 1000)) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [ref, isMobile]);
 
   return (
     <article className={styles.services}>
@@ -48,27 +52,7 @@ export const Services = () => {
             </li>
           ))}
         </ul>
-        <section className={styles.services__service}>
-          <Transition
-            in={!isOnChange}
-            nodeRef={transRef}
-            timeout={duration}
-            unmountOnExit
-          >
-            {(state) => (
-              <div
-                className={styles.services__service__box}
-                style={{ ...defaultStyles, ...transitionStyles[state] }}
-              >
-                <img src={currService.image.src} alt={currService.tabTitle} loading="lazy" />
-                <div className={styles.services__service__box__text}>
-                  <h1>{currService.imageTitle}</h1>
-                  <p>{currService.imageText}</p>
-                </div>
-              </div>
-            )}
-          </Transition>
-        </section>
+        <Service currService={currService} isOnChange={isOnChange} />
         <section className={styles.services__generalContent}>
           <h1
             className={classNames(
@@ -78,7 +62,7 @@ export const Services = () => {
           >
             Lorem ipsum dolor sit
           </h1>
-          <div className={styles.services__generalContent__text}>
+          <div className={styles.services__generalContent__text} ref={ref}>
             <h1 className={styles.services__generalContent__title}>
               Lorem ipsum dolor sit
             </h1>
@@ -88,7 +72,9 @@ export const Services = () => {
               ))}
             </div>
           </div>
-          <img src={RobotImg.src} alt="Robot image" />
+          <div className={styles.services__generalContent__imgBox}>
+            {isVisible && <img src={RobotImg.src} alt="Robot image" />}
+          </div>
         </section>
       </div>
       <div className={styles.elements__circle}></div>

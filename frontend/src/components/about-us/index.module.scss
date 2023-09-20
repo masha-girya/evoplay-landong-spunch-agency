@@ -55,13 +55,14 @@ $border-radius: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 180px;
     max-width: 968px;
     margin: 0 auto;
 
     @include mixins.devices(tablet) {
       padding: 60px 16px;
       padding-left: 56px;
+      gap: 120px;
     }
 
     &::after {

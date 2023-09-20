@@ -37,7 +37,13 @@ export const AboutUs = () => {
         <div className={styles.aboutUs__list}>
           <div className={styles.aboutUs__list__circle}></div>
           {ABOUT_US.map((item, i) => (
-            <AboutUsCard key={i} card={item} isMain={i === mainItemIndex} />
+            <AboutUsCard
+              key={i}
+              card={item}
+              index={i}
+              mainItemIndex={mainItemIndex}
+              setMainItemIndex={setMainItemIndex}
+            />
           ))}
         </div>
       </div>
