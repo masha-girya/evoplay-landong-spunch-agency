@@ -60,7 +60,8 @@
 
   &--secondary {
     width: max-content;
-    height: 53px;
+    height: 46px;
+    width: 110px;
     padding: 16.8px 40px;
     border-radius: 10px;
     border: 1px solid #4ECDC4;
@@ -75,7 +76,6 @@
 
     &:hover, &:active, &_active {
       background: #4ECDC4;
-      box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
 
       .button--secondary__name {
         color: #000;

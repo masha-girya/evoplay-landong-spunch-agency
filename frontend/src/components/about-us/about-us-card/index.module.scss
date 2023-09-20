@@ -1,0 +1,76 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.aboutUsCard {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 180px;
+  width: 100%;
+
+  @include mixins.devices(tablet) {
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__circleBox {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    left: calc(367px - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+          96.56deg,
+          #EF9CDA 0%,
+          #121A6F 61.98%,
+          #89A1EF 100%
+        );
+    border-radius: 50%;
+
+    @include mixins.devices(tablet) {
+      left: -40px;
+      top: 10px;
+    }
+
+    &__circle {
+      position: relative;
+      z-index: 3;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #041028;
+    }
+  }
+
+  h1 {
+    opacity: 50%;
+    text-align: end;
+    font-size: 50px;
+    font-weight: 700;
+
+    @include mixins.devices(tablet) {
+      font-size: 30px;
+      text-align: start;
+    }
+  }
+
+  p {
+    opacity: 50%;
+    width: 510px;
+    @include mixins.bodyText();
+
+    @include mixins.devices(tablet) {
+      width: 100%;
+    }
+  }
+
+  &_main {
+    p, h1 {
+      opacity: 100%;
+    }
+  }
+}

@@ -3,8 +3,14 @@
 $border-radius: 20px;
 
 .aboutUs {
+  position: relative;
+
   &__container {
     padding: 80px 0;
+
+    @include mixins.devices(tablet) {
+      padding: 80px 0 60px;
+    }
   }
 
   &__head {
@@ -20,6 +26,10 @@ $border-radius: 20px;
     border-radius: $border-radius;
     border: 1px solid transparent;
     @include mixins.borderRounded($border-radius);
+
+    @include mixins.devices(tablet) {
+      margin: 0 auto 60px;
+    }
 
     img {
       position: absolute;
@@ -49,14 +59,24 @@ $border-radius: 20px;
     max-width: 968px;
     margin: 0 auto;
 
+    @include mixins.devices(tablet) {
+      padding: 60px 16px;
+      padding-left: 56px;
+    }
+
     &::after {
       content: "";
       position: absolute;
+      z-index: 0;
       top: 0;
       left: 367px;
       height: 100%;
       width: 1px;
       background: linear-gradient(97deg, #EF9CDA 0%, #121A6F 61.98%, #89A1EF 120%);
+
+      @include mixins.devices(tablet) {
+        left: 26px;
+      }
     }
 
     &__circle {
@@ -68,58 +88,75 @@ $border-radius: 20px;
       height: 14px;
       background-color: #4ECDC4;
       border-radius: 50%;
-    }
 
-    &__item {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 180px;
-      width: 100%;
-      opacity: 50%;
-
-      &_main {
-        opacity: 100%;
-      }
-
-      &__circleBox {
-        position: absolute;
-        z-index: 2;
-        width: 20px;
-        height: 20px;
-        left: calc(367px - 10px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: linear-gradient(
-              96.56deg,
-              #EF9CDA 0%,
-              #121A6F 61.98%,
-              #89A1EF 100%
-            );
-        border-radius: 50%;
-
-        &__circle {
-          position: relative;
-          z-index: 3;
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background-color: #041028;
-        }
-      }
-
-      h1 {
-        text-align: end;
-        font-size: 50px;
-        font-weight: 700;
-      }
-
-      p {
-        width: 510px;
-        @include mixins.bodyText();
+      @include mixins.devices(tablet) {
+        left: 19px;
+        top: 7.6%;
       }
     }
   }
+}
+
+.elements {
+  &__circleShadow {
+    position: absolute;
+    z-index: 0;
+    top: 288px;
+    left: -25%;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #89A1EF;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      width: 225.944px;
+      height: 225.944px;
+      top: 226px;
+      left: -100px;
+      filter: blur(150px);
+    }
+  }
+
+  &__circleShadowBottom {
+    position: absolute;
+    z-index: 0;
+    bottom: -400px;
+    right: -200px;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #89a1ef;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      width: 199.928px;
+      height: 199.928px;
+      bottom: -400px;
+      right: -100px;
+      filter: blur(140px);
+    }
+  }
+
+
+  &__circleShadowBottom2 {
+    position: absolute;
+    z-index: 0;
+    bottom: -600px;
+    right: -30%;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #EF9CDA;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+}
+
+.anchor {
+  position: relative;
+  top: -95px;
 }

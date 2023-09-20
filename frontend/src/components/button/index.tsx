@@ -25,8 +25,6 @@ export const Button: React.FC<IButton> = (props) => {
   //   if (!disabled) onClick();
   // };
 
-  console.log(name, isActive)
-
   return (
     <button
       type="button"

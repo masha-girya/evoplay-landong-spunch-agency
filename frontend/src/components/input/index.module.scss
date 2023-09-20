@@ -7,7 +7,7 @@ $border-radius: 10px;
   height: max-content;
   position: relative;
   z-index: 1;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
   border-radius: $border-radius;
   @include mixins.borderRounded($border-radius);
 }
@@ -19,6 +19,7 @@ $border-radius: 10px;
   border-radius: $border-radius;
   background: #041028;
   outline: none;
+  height: 48px;
   padding: 16.8px 20px;
   width: 100%;
   color: #FFF;

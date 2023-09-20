@@ -4,6 +4,7 @@ import { Button } from "@components/button";
 import { SERVICES, SERVICES_TEXT } from "src/constants";
 import styles from "./index.module.scss";
 import RobotImg from "./assets/Robot.png";
+import classNames from "classnames";
 
 export const Services = () => {
   const [currService, setCurrService] = useState(SERVICES[0]);
@@ -16,7 +17,7 @@ export const Services = () => {
 
   const defaultStyles = {
     opacity: 0,
-    transition: `opacity ${duration}s ease-in`
+    transition: `opacity ${duration}s ease-in`,
   };
 
   const transitionStyles: any = {
@@ -59,7 +60,7 @@ export const Services = () => {
                 className={styles.services__service__box}
                 style={{ ...defaultStyles, ...transitionStyles[state] }}
               >
-                <img src={currService.image.src} alt={currService.tabTitle} />
+                <img src={currService.image.src} alt={currService.tabTitle} loading="lazy" />
                 <div className={styles.services__service__box__text}>
                   <h1>{currService.imageTitle}</h1>
                   <p>{currService.imageText}</p>
@@ -69,8 +70,18 @@ export const Services = () => {
           </Transition>
         </section>
         <section className={styles.services__generalContent}>
+          <h1
+            className={classNames(
+              styles.services__generalContent__title,
+              styles.services__generalContent__title_mob
+            )}
+          >
+            Lorem ipsum dolor sit
+          </h1>
           <div className={styles.services__generalContent__text}>
-            <h1>Lorem ipsum dolor sit</h1>
+            <h1 className={styles.services__generalContent__title}>
+              Lorem ipsum dolor sit
+            </h1>
             <div className={styles.services__generalContent__text__pBox}>
               {SERVICES_TEXT.map((item, i) => (
                 <p key={i}>{item}</p>
@@ -80,6 +91,8 @@ export const Services = () => {
           <img src={RobotImg.src} alt="Robot image" />
         </section>
       </div>
+      <div className={styles.elements__circle}></div>
+      <div className={styles.elements__circle2}></div>
     </article>
   );
 };

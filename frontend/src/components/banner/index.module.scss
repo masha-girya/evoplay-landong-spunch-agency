@@ -2,10 +2,16 @@
 
 .banner {
   height: 100vh;
+  min-height: 800px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include mixins.devices(tablet) {
+    padding-top: 95px;
+    height: max-content;
+  }
 
   &__imgBox {
     position: relative;
@@ -13,38 +19,210 @@
     width: 40%;
     display: flex;
     flex-direction: column;
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
   }
 
   &__shieldImg {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     right: 246px;
     top: 21%;
     margin: auto;
+
+    &_mob {
+      display: none;
+      width: 130px;
+      margin: 0 auto;
+
+      @include mixins.devices(tablet) {
+        display: flex;
+      }
+    }
   }
 
   &__robotImg {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     right: 0%;
     top: 50%;
+
+    &_mob {
+      display: none;
+
+      @include mixins.devices(tablet) {
+        display: flex;
+        width: 100%;
+      }
+    }
   }
 
   &__text {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding-left: 64px;
+
+    @include mixins.devices(tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 16px;
+      padding-bottom: 60px;
+      padding-top: 60px;
+    }
 
     h1 {
       @include mixins.mainTitle();
       margin-bottom: 26px;
+
+      @include mixins.devices(tablet) {
+        margin-bottom: 40px;
+      }
     }
 
     p {
-      color: #FFFFFF;
+      color: #ffffff;
       @include mixins.bodyText();
       margin-bottom: 40px;
       max-width: 600px;
+
+      @include mixins.devices(tablet) {
+        padding-right: 16px;
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+.elements {
+  &__circle {
+    position: absolute;
+    z-index: 0;
+    bottom: 37%;
+    left: -30%;
+    width: 1124px;
+    height: 1124px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 245, 0.11);
+
+    @include mixins.devices(tablet) {
+      width: 788px;
+      height: 788px;
+      bottom: 77px;
+      left: -80%;
+    }
+  }
+
+  &__circleShadow1 {
+    position: absolute;
+    z-index: 0;
+    left: 6%;
+    top: 50%;
+    width: 199.928px;
+    height: 199.928px;
+    background-color: #ef9cda;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+
+  &__circleShadow2 {
+    position: absolute;
+    z-index: 0;
+    top: 35%;
+    left: 0;
+    width: 199.928px;
+    height: 199.928px;
+    background-color: #89a1ef;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+
+  &__circleShadow3 {
+    position: absolute;
+    z-index: 0;
+    top: 53%;
+    left: 10%;
+    width: 69.282px;
+    height: 69.282px;
+    background-color: #121a6f;
+    filter: blur(90px);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+
+  &__circleBottom {
+    position: absolute;
+    z-index: 0;
+    bottom: -18%;
+    right: -25%;
+    width: 506px;
+    height: 506px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 245, 0.11);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+
+  &__circleShadowBottom1 {
+    position: absolute;
+    z-index: 0;
+    bottom: -50%;
+    right: -10%;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #ef9cda;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      width: 199.928px;
+      height: 199.928px;
+      bottom: -50px;
+      left: -20%;
+      filter: blur(135px);
+    }
+  }
+
+  &__circleShadowBottom2 {
+    position: absolute;
+    z-index: 0;
+    bottom: -30%;
+    right: 5%;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #89a1ef;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+
+  &__circleShadowBottom3 {
+    position: absolute;
+    z-index: 0;
+    bottom: -225px;
+    right: 40px;
+    width: 140px;
+    height: 140px;
+    background-color: #121a6f;
+    filter: blur(90px);
+
+    @include mixins.devices(tablet) {
+      display: none;
     }
   }
 }

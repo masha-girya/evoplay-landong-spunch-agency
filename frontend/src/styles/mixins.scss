@@ -1,4 +1,10 @@
 @mixin devices($breakpoint) {
+  @if $breakpoint == smallDesk {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
   @if $breakpoint == tablet {
     @media only screen and (max-width: 680px) {
       @content;
@@ -37,7 +43,8 @@
   font-weight: 700;
   line-height: normal;
 
-  @include devices(mobile) {
+  @include devices(tablet) {
+    font-size: 30px;
   }
 }
 
@@ -46,13 +53,14 @@
   font-weight: 700;
   line-height: normal;
 
-  @include devices(mobile) {
+  @include devices(tablet) {
+    font-size: 24px;
   }
 }
 
 @mixin middleTitle {
 
-  @include devices(mobile) {
+  @include devices(tablet) {
   }
 }
 
@@ -61,7 +69,9 @@
   font-weight: 400;
   line-height: normal;
 
-  @include devices(mobile) {
+  @include devices(tablet) {
+    font-size: 16px;
+    line-height: 18px;
   }
 }
 
@@ -107,5 +117,19 @@
       #121A6F 61.98%,
       #89A1EF 100%
     );
+  }
+}
+
+@mixin circleBackground {
+  position: absolute;
+  z-index: 0;
+  width: 707px;
+  height: 707px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 245, 245, 0.11);
+
+  @include devices(tablet) {
+    width: 517.536px;
+    height: 517.536px;
   }
 }

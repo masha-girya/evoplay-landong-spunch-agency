@@ -1,12 +1,22 @@
+import { useDevice } from "src/hooks/useDevice";
+import { SolutionCard } from "./solution-card";
+import { NAV, SOLUTIONS } from "src/constants";
 import styles from "./index.module.scss";
 import AIImg from "./assets/AI.png";
-import { NAV, SOLUTIONS } from "src/constants";
-import { Button } from "@components/button";
-import classNames from "classnames";
 
 export const Solutions = () => {
+  const { isMobile } = useDevice();
+
   return (
-    <article className={styles.solutions} id={NAV[0].link.replace("#", "")}>
+    <article className={styles.solutions} id={isMobile ? "" : NAV[0].link.replace("#", "")}>
+      {isMobile && (
+        <span
+          id={NAV[0].link.replace("#", "")}
+          className={styles.anchor}
+        ></span>
+      )}
+      <div className={styles.elements__circle}></div>
+      <div className={styles.elements__circle2}></div>
       <div className={styles.solutions__container}>
         <section className={styles.solutions__intro}>
           <div className={styles.solutions__intro__textBox}>
@@ -17,24 +27,13 @@ export const Solutions = () => {
               opportunities across all data source.
             </p>
           </div>
-
-          <img src={AIImg.src} alt="AI banner" />
+          <div className={styles.solutions__intro__aiImg}>
+            <img src={AIImg.src} alt="AI banner" loading="lazy" />
+          </div>
         </section>
         <div className={styles.solutions__list}>
           {SOLUTIONS.map((item, i) => (
-            <section key={i} className={styles.solutions__list__section}>
-              <div className={classNames(styles.solutions__list__section__textBox, {
-                [styles.solutions__list__section__textBox_even]: i % 2 !== 0
-              })}>
-                <h1>{item.letter}</h1>
-                <h2>{item.title}</h2>
-                <p>{item.text}</p>
-                <a href={item.link}>
-                  <Button name="Read more" onClick={() => {}} />
-                </a>
-              </div>
-              <img src={item.image.src} alt={item.title} />
-            </section>
+            <SolutionCard key={i} card={item} isEven={i % 2 !== 0} />
           ))}
         </div>
       </div>

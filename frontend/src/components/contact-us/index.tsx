@@ -13,6 +13,7 @@ export const ContactUs = () => {
 
   return (
     <div className={styles.contactUs}>
+      <div className={styles.elements__circle}></div>
       <div className={styles.contactUs__container}>
         <h1 className={styles.contactUs__title}>Contact Us</h1>
         <form className={styles.contactUs__form}>
