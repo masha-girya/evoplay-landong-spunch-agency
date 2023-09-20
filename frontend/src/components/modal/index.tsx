@@ -43,12 +43,14 @@ export const Modal: React.FC<IModal> = (props) => {
     setOpen(isOpen);
 
     if (isOpen) {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "hidden";
       document.body.style.position = "relative";
-      document.getElementsByTagName("html")[0].style.overflow = "unset";
+      document.body.style.paddingRight = "3px";
+      document.getElementsByTagName("html")[0].style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
       document.body.style.position = "static";
+      document.body.style.paddingRight = "0";
       document.getElementsByTagName("html")[0].style.overflow = "visible";
     }
   }, [isOpen]);
