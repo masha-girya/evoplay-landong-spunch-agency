@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDevice } from "src/hooks/useDevice";
 import { AboutUsCard } from "./about-us-card";
 import { ABOUT_US, NAV } from "src/constants";
@@ -7,8 +7,34 @@ import Image from "./assets/Handshake.png";
 import ImageMob from "./assets/HandshakeMob.png";
 
 export const AboutUs = () => {
-  const [mainItemIndex, setMainItemIndex] = useState(0);
+  const [mainItemIndex, setMainItemIndex] = useState(-1);
   const { isMobile } = useDevice();
+  const blockRef = useRef<any | null>(null);
+  const [top, setTop] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(blockRef.current) {
+        const position = blockRef.current.getBoundingClientRect();
+
+        if(position.y > 450) {
+          setMainItemIndex(-1);
+          setTop(0);
+        }
+
+        if(position.y < -750) {
+          setMainItemIndex(-1);
+          setTop(position.height);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [blockRef]);
 
   return (
     <article
@@ -34,8 +60,8 @@ export const AboutUs = () => {
           />
           <h1>About Us</h1>
         </section>
-        <div className={styles.aboutUs__list}>
-          <div className={styles.aboutUs__list__circle}></div>
+        <div className={styles.aboutUs__list} ref={blockRef}>
+          <div className={styles.aboutUs__list__circle} style={{top}}></div>
           {ABOUT_US.map((item, i) => (
             <AboutUsCard
               key={i}
@@ -43,6 +69,7 @@ export const AboutUs = () => {
               index={i}
               mainItemIndex={mainItemIndex}
               setMainItemIndex={setMainItemIndex}
+              setTop={setTop}
             />
           ))}
         </div>

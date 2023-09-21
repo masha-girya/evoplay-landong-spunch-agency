@@ -59,6 +59,10 @@ $border-radius: 20px;
     max-width: 968px;
     margin: 0 auto;
 
+    @include mixins.devices(smallDesk) {
+      padding: 60px 16px;
+    }
+
     @include mixins.devices(tablet) {
       padding: 60px 16px;
       padding-left: 56px;
@@ -75,6 +79,10 @@ $border-radius: 20px;
       width: 1px;
       background: linear-gradient(97deg, #EF9CDA 0%, #121A6F 61.98%, #89A1EF 120%);
 
+      @include mixins.devices(smallDesk) {
+        left: 32%;
+      }
+
       @include mixins.devices(tablet) {
         left: 26px;
       }
@@ -83,16 +91,20 @@ $border-radius: 20px;
     &__circle {
       position: absolute;
       z-index: 3;
-      top: 17.8%;;
+      top: 0;
       left: calc(368px - 8px);
       width: 14px;
       height: 14px;
       background-color: #4ECDC4;
       border-radius: 50%;
+      transition: all .3s ease;
+
+      @include mixins.devices(smallDesk) {
+        left: calc(32% - 7px);
+      }
 
       @include mixins.devices(tablet) {
         left: 19px;
-        top: 7.6%;
       }
     }
   }

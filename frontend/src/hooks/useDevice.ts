@@ -9,9 +9,9 @@ export const useDevice = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 480);
-      setIsTablet(window.innerWidth < 800 && window.innerWidth >= 480);
-      setIsSmallNote(window.innerWidth < 1200 && window.innerWidth >= 800);
-      setIsDesktop(window.innerWidth >= 1200);
+      setIsTablet(window.innerWidth < 680 && window.innerWidth >= 480);
+      setIsSmallNote(window.innerWidth < 1000 && window.innerWidth >= 680);
+      setIsDesktop(window.innerWidth >= 1000);
     };
 
     handleResize();

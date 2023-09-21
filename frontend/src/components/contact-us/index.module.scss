@@ -17,13 +17,11 @@
   }
 
   &__title {
-    @include mixins.blockTitle();
-    font-size: 50px;
+    @include mixins.mainTitle();
     text-align: center;
     margin-bottom: 50px;
 
     @include mixins.devices(tablet) {
-      font-size: 30px;
       margin-bottom: 40px;
     }
   }

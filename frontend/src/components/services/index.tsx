@@ -1,30 +1,27 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Transition } from "react-transition-group";
+import { useCallback, useEffect, useRef, useState } from "react";
+import classNames from "classnames";
+import { useDevice } from "src/hooks/useDevice";
 import { Button } from "@components/button";
+import { Service } from "./service";
 import { SERVICES, SERVICES_TEXT } from "src/constants";
 import styles from "./index.module.scss";
 import RobotImg from "./assets/Robot.png";
-import classNames from "classnames";
-import { Service } from "./service";
-import { useDevice } from "src/hooks/useDevice";
 
 export const Services = () => {
-  const [currService, setCurrService] = useState(SERVICES[0]);
-  const [isOnChange, setIsOnChange] = useState(false);
+  const [currService, setCurrService] = useState<null | typeof SERVICES[0]>(SERVICES[0]);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<any | null>(null);
   const { isMobile } = useDevice();
 
   const handleChoose = useCallback((item: (typeof SERVICES)[0]) => {
-    setIsOnChange(true);
-    setCurrService(item);
-    setTimeout(() => setIsOnChange(false), 100);
+    setCurrService(null);
+    setTimeout(() => setCurrService(item), 400);
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       if (ref.current) {
-        if(window.scrollY >= (isMobile ? 900 : 1000)) {
+        if(window.scrollY >= (isMobile ? 900 : 1200)) {
           setIsVisible(true);
         }
       }
@@ -46,13 +43,13 @@ export const Services = () => {
               <Button
                 name={item.tabTitle}
                 variant="textMain"
-                isActive={currService.tabTitle === item.tabTitle}
+                isActive={currService?.tabTitle === item.tabTitle}
                 onClick={() => handleChoose(item)}
               />
             </li>
           ))}
         </ul>
-        <Service currService={currService} isOnChange={isOnChange} />
+        <Service currService={currService} />
         <section className={styles.services__generalContent}>
           <h1
             className={classNames(

@@ -4,13 +4,11 @@ import { SERVICES } from "src/constants";
 import styles from "./index.module.scss";
 
 interface IService {
-  currService: (typeof SERVICES)[0];
-  isOnChange: boolean;
+  currService: (typeof SERVICES)[0] | null;
 }
 
 export const Service: React.FC<IService> = (props) => {
-  const { currService, isOnChange } = props;
-  const { image, imageText, imageTitle, tabTitle } = currService;
+  const { currService } = props;
   const transRef = useRef<any | null>(null);
 
   const duration = useMemo(() => {
@@ -19,37 +17,39 @@ export const Service: React.FC<IService> = (props) => {
 
   const defaultStyles = {
     opacity: 0,
-    transition: `opacity ${duration}s ease-in`,
+    transition: `opacity ${duration}ms ease-in`,
   };
 
   const transitionStyles: any = {
     entering: { opacity: 1 },
     entered: { opacity: 1 },
-    exiting: { opacity: 1 },
+    exiting: { opacity: 0 },
     exited: { opacity: 0 },
   };
 
   return (
     <section className={styles.service}>
       <Transition
-        in={!isOnChange}
+        in={currService !== null}
         nodeRef={transRef}
         timeout={duration}
-        unmountOnExit
       >
         {(state) => (
           <div
+            ref={transRef}
             className={styles.service__box}
             style={{ ...defaultStyles, ...transitionStyles[state] }}
           >
-            <img
-              src={image.src}
-              alt={tabTitle}
-              loading="lazy"
-            />
+            {currService && (
+              <img
+                src={currService.image.src}
+                alt={currService.tabTitle}
+                loading="lazy"
+              />
+            )}
             <div className={styles.service__box__text}>
-              <h1>{imageTitle}</h1>
-              <p>{imageText}</p>
+              <h1>{currService?.imageTitle}</h1>
+              <p>{currService?.imageText}</p>
             </div>
           </div>
         )}
