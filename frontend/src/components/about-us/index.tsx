@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useDevice } from "src/hooks/useDevice";
 import { AboutUsCard } from "./about-us-card";
 import { ABOUT_US, NAV } from "src/constants";
@@ -7,31 +7,9 @@ import Image from "./assets/Handshake.png";
 import ImageMob from "./assets/HandshakeMob.png";
 
 export const AboutUs = () => {
-  const [mainItemIndex, setMainItemIndex] = useState(-1);
+  const [mainItemIndex, setMainItemIndex] = useState(1);
   const { isMobile, isTablet } = useDevice();
-  const blockRef = useRef<any | null>(null);
   const [top, setTop] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (blockRef.current) {
-        const position = blockRef.current.getBoundingClientRect();
-
-        if (position.y > 450 || position.y < -750) {
-          setMainItemIndex(-1);
-        }
-        if (position.y < -750) {
-          setMainItemIndex(100);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [blockRef]);
 
   return (
     <article className={styles.aboutUs}>
@@ -46,7 +24,7 @@ export const AboutUs = () => {
           />
           <h1>About Us</h1>
         </section>
-        <div className={styles.aboutUs__list} ref={blockRef}>
+        <div className={styles.aboutUs__list}>
           <div
             className={styles.aboutUs__list__circle}
             style={{ transform: `translateY(${top}px)` }}
