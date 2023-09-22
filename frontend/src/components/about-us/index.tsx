@@ -8,7 +8,7 @@ import ImageMob from "./assets/HandshakeMob.png";
 
 export const AboutUs = () => {
   const [mainItemIndex, setMainItemIndex] = useState(-1);
-  const { isMobile } = useDevice();
+  const { isMobile, isTablet } = useDevice();
   const blockRef = useRef<any | null>(null);
   const [top, setTop] = useState(0);
 
@@ -49,8 +49,7 @@ export const AboutUs = () => {
         <section className={styles.aboutUs__head}>
           <img
             loading="lazy"
-            src={Image.src}
-            srcSet={`${ImageMob.src} 600w, ${Image.src} 1000w`}
+            src={(isTablet || isMobile) ? ImageMob.src : Image.src}
             alt="Robot and human handshake"
           />
           <h1>About Us</h1>
