@@ -14,48 +14,43 @@ export const AboutUs = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if(blockRef.current) {
+      if (blockRef.current) {
         const position = blockRef.current.getBoundingClientRect();
 
-        if(position.y > 450 || position.y < -750) {
+        if (position.y > 450 || position.y < -750) {
           setMainItemIndex(-1);
         }
-        if(position.y < -750) {
+        if (position.y < -750) {
           setMainItemIndex(100);
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [blockRef]);
 
   return (
-    <article
-      className={styles.aboutUs}
-      id={isMobile ? "" : NAV[1].link.replace("#", "")}
-    >
-      {isMobile && (
-        <span
-          id={NAV[1].link.replace("#", "")}
-          className={styles.anchor}
-        ></span>
-      )}
+    <article className={styles.aboutUs}>
+      <span id={NAV[1].link.replace("#", "")} className={styles.anchor}></span>
       <div className={styles.elements__circleShadow}></div>
       <div className={styles.aboutUs__container}>
         <section className={styles.aboutUs__head}>
           <img
             loading="lazy"
-            src={(isTablet || isMobile) ? ImageMob.src : Image.src}
+            src={isTablet || isMobile ? ImageMob.src : Image.src}
             alt="Robot and human handshake"
           />
           <h1>About Us</h1>
         </section>
         <div className={styles.aboutUs__list} ref={blockRef}>
-          <div className={styles.aboutUs__list__circle} style={{ transform: `translateY(${top}px)` }}></div>
+          <div
+            className={styles.aboutUs__list__circle}
+            style={{ transform: `translateY(${top}px)` }}
+          ></div>
           {ABOUT_US.map((item, i) => (
             <AboutUsCard
               key={i}

@@ -1,20 +1,13 @@
-import { useDevice } from "src/hooks/useDevice";
 import { SolutionCard } from "./solution-card";
 import { NAV, SOLUTIONS } from "src/constants";
 import styles from "./index.module.scss";
 import AIImg from "./assets/AI.png";
 
 export const Solutions = () => {
-  const { isMobile } = useDevice();
 
   return (
-    <article className={styles.solutions} id={isMobile ? "" : NAV[0].link.replace("#", "")}>
-      {isMobile && (
-        <span
-          id={NAV[0].link.replace("#", "")}
-          className={styles.anchor}
-        ></span>
-      )}
+    <article className={styles.solutions}>
+      <span id={NAV[0].link.replace("#", "")} className={styles.anchor}></span>
       <div className={styles.elements__circle}></div>
       <div className={styles.elements__circle2}></div>
       <div className={styles.solutions__container}>

@@ -97,6 +97,10 @@
 
 .anchor {
   position: absolute;
-  top: -95px;
+  top: 0;
   left: 0;
+
+  @include mixins.devices(tablet) {
+    top: -95px;
+  }
 }

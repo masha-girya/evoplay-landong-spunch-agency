@@ -8,14 +8,6 @@ import Logo from "src/assets/images/Logo.png";
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleScrollTop = useCallback(() => {
-    setMenuOpen(false);
-    document.body.style.overflow = "auto";
-    document.body.style.position = "static";
-    document.getElementsByTagName("html")[0].style.overflow = "visible";
-    setTimeout(() => window.scrollTo(0, 0), 1);
-  }, []);
-
   const handleMobileMenu = () => {
     setMenuOpen(!menuOpen);
 
@@ -45,9 +37,9 @@ export const Header = () => {
       })}
     >
       <div className={styles.header__container}>
-        <div className={styles.header__logo}>
-          <img src={Logo.src} alt="EVO Logo" onClick={handleScrollTop} />
-        </div>
+        <a href="/" className={styles.header__logo}>
+          <img src={Logo.src} alt="EVO Logo" />
+        </a>
         <div className={styles.burger}>
           <input type="checkbox" checked={menuOpen} onChange={handleMobileMenu} />
           <span></span>

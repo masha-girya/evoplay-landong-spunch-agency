@@ -34,7 +34,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
       const renderPixels = () => {
         const isWebkit = /(safari|chrome)/.test(navigator.userAgent.toLowerCase());
-        return isWebkit ? 4 : 3;
+        return isWebkit ? 5 : 6;
       };
 
       const first = Math.round(refHeight / 2) + padding - renderPixels();
