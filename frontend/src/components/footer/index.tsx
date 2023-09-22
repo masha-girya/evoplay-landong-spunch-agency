@@ -4,7 +4,6 @@ import Logo from "src/assets/images/Logo.png";
 import { RightsIcon } from "@components/icons/RightsIcon";
 import { SOCIALS } from "src/constants/socials";
 import { useCallback } from "react";
-import { FooterGraphicsIcon } from "@components/icons/FooterGraphicIcon";
 
 export const Footer = () => {
   const handleScrollTop = useCallback(() => {
@@ -15,9 +14,6 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.elements__circleShadowBottom}></div>
       <div className={styles.elements__circleShadowBottom2}></div>
-      <div className={styles.graphic__circleBottom2}>
-        <FooterGraphicsIcon/>
-      </div>
       <div className={styles.footer__container}>
         <img src={Logo.src} loading="lazy" onClick={handleScrollTop} />
         <Nav isFooter />
