@@ -122,10 +122,13 @@
     z-index: 0;
     left: 6%;
     top: 50%;
-    width: 199.928px;
-    height: 199.928px;
+    width: 150px;
+    height: 150px;
     background-color: #ef9cda;
-    filter: blur(190px);
+    filter: blur(100px);
+    box-shadow: 0px 0px 140px 0px #ef9cda;
+    -webkit-box-shadow: 0px 0px 150px 0px #ef9cda;
+    -moz-box-shadow: 0px 0px 150px 0px #ef9cda;
 
     @include mixins.devices(tablet) {
       display: none;
@@ -137,10 +140,13 @@
     z-index: 0;
     top: 35%;
     left: 0;
-    width: 199.928px;
-    height: 199.928px;
+    width: 150px;
+    height: 150px;
     background-color: #89a1ef;
-    filter: blur(190px);
+    filter: blur(100px);
+    box-shadow: 0px 0px 140px 0px #89a1ef;
+    -webkit-box-shadow: 0px 0px 140px 0px #89a1ef;
+    -moz-box-shadow: 0px 0px 140px 0px #89a1ef;
 
     @include mixins.devices(tablet) {
       display: none;
@@ -150,12 +156,17 @@
   &__circleShadow3 {
     position: absolute;
     z-index: 0;
-    top: 53%;
+    top: 58%;
     left: 10%;
-    width: 69.282px;
-    height: 69.282px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     background-color: #121a6f;
-    filter: blur(90px);
+    filter: blur(30px);
+    box-shadow: 0px 0px 60px 0px #121a6f;
+    -webkit-box-shadow: 0px 0px 60px 0px #121a6f;
+    -moz-box-shadow: 0px 0px 60px 0px #121a6f;
+    opacity: 0.5;
 
     @include mixins.devices(tablet) {
       display: none;
@@ -180,33 +191,45 @@
   &__circleShadowBottom1 {
     position: absolute;
     z-index: 0;
-    bottom: -50%;
-    right: -10%;
-    width: 404px;
-    height: 404px;
+    bottom: -18%;
+    right: -4%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background: #ef9cda;
-    filter: blur(190px);
+    filter: blur(100px);
+
+    box-shadow: 0px 0px 200px 0px #ef9cda;
+    -webkit-box-shadow: 0px 0px 200px 0px #ef9cda;
+    -moz-box-shadow: 0px 0px 200px 0px #ef9cda;
 
     @include mixins.devices(tablet) {
-      width: 199.928px;
-      height: 199.928px;
+      width: 150px;
+      height: 150px;
       bottom: -50px;
-      left: -20%;
-      filter: blur(135px);
+      left: -2%;
+      filter: blur(100px);
+      box-shadow: 0px 0px 150px 0px #ef9cda;
+      -webkit-box-shadow: 0px 0px 150px 0px #ef9cda;
+      -moz-box-shadow: 0px 0px 150px 0px #ef9cda;
+      opacity: 0.7;
     }
   }
 
   &__circleShadowBottom2 {
     position: absolute;
     z-index: 0;
-    bottom: -30%;
-    right: 5%;
-    width: 404px;
-    height: 404px;
+    bottom: -4%;
+    right: 13%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background: #89a1ef;
-    filter: blur(190px);
+    filter: blur(100px);
+
+    box-shadow: 0px 0px 200px 0px #89a1ef;
+    -webkit-box-shadow: 0px 0px 200px 0px #89a1ef;
+    -moz-box-shadow: 0px 0px 200px 0px #89a1ef;
 
     @include mixins.devices(tablet) {
       display: none;

@@ -77,7 +77,12 @@ $border-radius: 20px;
       left: 367px;
       height: 100%;
       width: 1px;
-      background: linear-gradient(97deg, #EF9CDA 0%, #121A6F 61.98%, #89A1EF 120%);
+      background: linear-gradient(
+        97deg,
+        #ef9cda 0%,
+        #121a6f 61.98%,
+        #89a1ef 120%
+      );
 
       @include mixins.devices(smallDesk) {
         left: 32%;
@@ -95,9 +100,9 @@ $border-radius: 20px;
       left: calc(368px - 8px);
       width: 14px;
       height: 14px;
-      background-color: #4ECDC4;
+      background-color: #4ecdc4;
       border-radius: 50%;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
 
       @include mixins.devices(smallDesk) {
         left: calc(32% - 7px);
@@ -114,20 +119,28 @@ $border-radius: 20px;
   &__circleShadow {
     position: absolute;
     z-index: 0;
-    top: 288px;
-    left: -25%;
-    width: 404px;
-    height: 404px;
+    top: 385px;
+    left: -6%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    background: #89A1EF;
-    filter: blur(190px);
+    background: #89a1ef;
+    filter: blur(100px);
+
+    box-shadow: 0px 0px 200px 0px #89a1ef;
+    -webkit-box-shadow: 0px 0px 200px 0px #89a1ef;
+    -moz-box-shadow: 0px 0px 200px 0px #89a1ef;
 
     @include mixins.devices(tablet) {
-      width: 225.944px;
-      height: 225.944px;
-      top: 226px;
-      left: -100px;
-      filter: blur(150px);
+      width: 150px;
+      height: 150px;
+      top: 268px;
+      left: -50px;
+      filter: blur(90px);
+
+      box-shadow: 0px 0px 110px 0px #89a1ef;
+      -webkit-box-shadow: 0px 0px 110px 0px #89a1ef;
+      -moz-box-shadow: 0px 0px 110px 0px #89a1ef;
     }
   }
 }

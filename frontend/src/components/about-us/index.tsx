@@ -8,7 +8,7 @@ import ImageMob from "./assets/HandshakeMob.png";
 
 export const AboutUs = () => {
   const [mainItemIndex, setMainItemIndex] = useState(-1);
-  const { isMobile, isTablet } = useDevice();
+  const { isMobile } = useDevice();
   const blockRef = useRef<any | null>(null);
   const [top, setTop] = useState(0);
 
@@ -56,7 +56,7 @@ export const AboutUs = () => {
           <h1>About Us</h1>
         </section>
         <div className={styles.aboutUs__list} ref={blockRef}>
-          <div className={styles.aboutUs__list__circle} style={{top}}></div>
+          <div className={styles.aboutUs__list__circle} style={{ transform: `translateY(${top}px)` }}></div>
           {ABOUT_US.map((item, i) => (
             <AboutUsCard
               key={i}

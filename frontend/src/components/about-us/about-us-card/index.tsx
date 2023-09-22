@@ -31,12 +31,13 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       const refHeight = ref.current.getBoundingClientRect().height;
       const gap = isMobile || isTablet ? 120 : 180;
       const padding = isDesktop ? 83 : 60;
-      const diag = () => {
-        if (window.innerWidth >= 1440) return 4;
-        return 3;
+
+      const renderPixels = () => {
+        const isWebkit = /(safari|chrome)/.test(navigator.userAgent.toLowerCase());
+        return isWebkit ? 4 : 3;
       };
 
-      const first = (refHeight / 2) + padding - diag();
+      const first = Math.round(refHeight / 2) + padding - renderPixels();
       const firstMob = padding + 13;
 
       return { refHeight, gap, first, firstMob };
@@ -95,9 +96,6 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // if(refCircle.current) {
-      //   console.log(refCircle.current.getBoundingClientRect());
-      // }
       if (ref.current) {
         if (isElementInViewport(ref.current)) {
           setMainItemIndex(index);
