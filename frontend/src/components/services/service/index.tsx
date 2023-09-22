@@ -12,7 +12,7 @@ export const Service: React.FC<IService> = (props) => {
   const transRef = useRef<any | null>(null);
 
   const duration = useMemo(() => {
-    return 300;
+    return 200;
   }, []);
 
   const defaultStyles = {

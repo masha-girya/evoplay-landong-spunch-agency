@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
 import classNames from "classnames";
+import { useDevice } from "src/hooks/useDevice";
 import { ABOUT_US } from "src/constants";
 import styles from "./index.module.scss";
-import { useDevice } from "src/hooks/useDevice";
 
 interface IAboutUsCard {
   card: (typeof ABOUT_US)[0];
@@ -16,6 +16,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
   const { card, index, mainItemIndex, setMainItemIndex, setTop } = props;
   const { title, text } = card;
   const ref = useRef<any | null>(null);
+  const refCircle = useRef<any | null>(null);
   const { isMobile, isTablet, isDesktop, isSmallNote } = useDevice();
 
   const isElementInViewport = useCallback((element: any) => {
@@ -25,40 +26,52 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
     return rect.top < clientHeight / 2 && rect.bottom > clientHeight / 2;
   }, []);
 
-  const changeTopPosition = useCallback((index) => {
-    if(ref.current) {
+  const getRefPosition = useCallback(
+    (ref: any) => {
       const refHeight = ref.current.getBoundingClientRect().height;
-      const gap = (isMobile || isTablet) ? 120 : 180;
-      const padding = isDesktop ? 80 : 60;
+      const gap = isMobile || isTablet ? 120 : 180;
+      const padding = isDesktop ? 83 : 60;
       const diag = () => {
-        if(isSmallNote) return 4;
-        if(isDesktop) return 1;
-        return 5;
+        if (window.innerWidth >= 1440) return 4;
+        return 3;
       };
 
-      const first = Math.round(refHeight / 2) + padding - diag();
+      const first = (refHeight / 2) + padding - diag();
       const firstMob = padding + 13;
 
-      const breakpoint1 = (isMobile || isTablet) ? firstMob : first;
-      const breakpoint2 = Math.round(refHeight + breakpoint1 + gap);
-      const breakpoint3 = Math.round(refHeight + breakpoint2 + gap);
-  
-      switch(index) {
-        case 0:
-          setTop(breakpoint1);
-          break;
-        case 1:
-          setTop(breakpoint2);
-          break;
-        case 2:
-          setTop(breakpoint3);
-          break;
-        default:
-          setTop((prev: number) => prev);
-      }
-    }
+      return { refHeight, gap, first, firstMob };
+    },
+    [isMobile, isTablet, isSmallNote, isDesktop]
+  );
 
-  }, [isMobile, isTablet, isDesktop, ref]);
+  const changeTopPosition = useCallback(
+    (index) => {
+      if (ref.current && refCircle.current) {
+        const { refHeight, first, firstMob, gap } = getRefPosition(ref);
+
+        const breakpoint1 = (isMobile || isTablet) ? firstMob : first;
+        const breakpoint2 = refHeight + breakpoint1 + gap;
+        const breakpoint3 = refHeight + breakpoint2 + gap;
+
+        switch (index) {
+          case -1:
+          case 0:
+            setTop(breakpoint1);
+            break;
+          case 1:
+            setTop(breakpoint2);
+            break;
+          case 2:
+          case 100:
+            setTop(breakpoint3);
+            break;
+          default:
+            setTop((prev: number) => prev);
+        }
+      }
+    },
+    [isMobile, isTablet, isDesktop, ref]
+  );
 
   const goToSection = useCallback(() => {
     if (ref.current) {
@@ -68,16 +81,27 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       });
 
       setMainItemIndex(index);
-      changeTopPosition(index)
+      changeTopPosition(index);
     }
   }, [ref, index, isMobile, isTablet, isDesktop]);
 
   useEffect(() => {
+    if (ref.current) {
+      const { first, firstMob } = getRefPosition(ref);
+
+      setTop(isMobile || isTablet ? firstMob : first);
+    }
+  }, [ref, isMobile, isTablet, isSmallNote, isDesktop]);
+
+  useEffect(() => {
     const handleScroll = () => {
+      // if(refCircle.current) {
+      //   console.log(refCircle.current.getBoundingClientRect());
+      // }
       if (ref.current) {
         if (isElementInViewport(ref.current)) {
           setMainItemIndex(index);
-          changeTopPosition(index)
+          changeTopPosition(index);
         }
       }
     };
@@ -91,7 +115,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
   return (
     <div className={styles.container} ref={ref}>
-      <div className={styles.container__circleBox}>
+      <div className={styles.container__circleBox} ref={refCircle}>
         <div className={styles.container__circleBox__circle}></div>
       </div>
       <section

@@ -8,7 +8,7 @@ import ImageMob from "./assets/HandshakeMob.png";
 
 export const AboutUs = () => {
   const [mainItemIndex, setMainItemIndex] = useState(-1);
-  const { isMobile } = useDevice();
+  const { isMobile, isTablet } = useDevice();
   const blockRef = useRef<any | null>(null);
   const [top, setTop] = useState(0);
 
@@ -17,14 +17,11 @@ export const AboutUs = () => {
       if(blockRef.current) {
         const position = blockRef.current.getBoundingClientRect();
 
-        if(position.y > 450) {
+        if(position.y > 450 || position.y < -750) {
           setMainItemIndex(-1);
-          setTop(0);
         }
-
         if(position.y < -750) {
-          setMainItemIndex(-1);
-          setTop(position.height);
+          setMainItemIndex(100);
         }
       }
     };
@@ -48,8 +45,6 @@ export const AboutUs = () => {
         ></span>
       )}
       <div className={styles.elements__circleShadow}></div>
-      <div className={styles.elements__circleShadowBottom}></div>
-      <div className={styles.elements__circleShadowBottom2}></div>
       <div className={styles.aboutUs__container}>
         <section className={styles.aboutUs__head}>
           <img

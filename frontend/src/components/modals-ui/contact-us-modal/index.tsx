@@ -22,9 +22,7 @@ export const ContactUsModal: React.FC<IContactUsModal> = (props) => {
   return (
     <div className={styles.contactModal}>
       <div className={styles.contactModal__header}>
-        <a href="/">
-          <img src={Logo.src} alt="Logo" loading="lazy" />
-        </a>
+        <img src={Logo.src} alt="Logo" loading="lazy" />
         <button
           className={styles.contactModal__header__closeIcon}
           type="button"

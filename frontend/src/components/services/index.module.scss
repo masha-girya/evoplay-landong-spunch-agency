@@ -9,7 +9,7 @@
     padding: 80px 64px;
 
     @include mixins.devices(tablet) {
-      padding: 60px 16px;
+      padding: 60px 0;
     }
   }
 
@@ -106,7 +106,7 @@
 .elements {
   &__circle {
     @include mixins.circleBackground();
-    bottom: -20%;
+    bottom: -25%;
     left: -35%;
 
     @include mixins.devices(tablet) {
@@ -117,7 +117,7 @@
 
   &__circle2 {
     @include mixins.circleBackground();
-    bottom: -35%;
+    bottom: -42%;
     left: -43%;
 
     @include mixins.devices(tablet) {

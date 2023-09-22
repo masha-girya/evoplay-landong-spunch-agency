@@ -1,10 +1,10 @@
+import { useState } from "react";
+import { Button } from "@components/button";
+import { Modal } from "@components/modal";
+import { ContactUsModal } from "@components/modals-ui/contact-us-modal";
 import styles from "./index.module.scss";
 import ShieldImg from "./assets/Shield.png";
 import RobotHandImg from "./assets/Robot-hand.png";
-import { Button } from "@components/button";
-import { Modal } from "@components/modal";
-import { useState } from "react";
-import { ContactUsModal } from "@components/modals-ui/contact-us-modal";
 
 export const Banner = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);

@@ -130,46 +130,10 @@ $border-radius: 20px;
       filter: blur(150px);
     }
   }
-
-  &__circleShadowBottom {
-    position: absolute;
-    z-index: 0;
-    bottom: -400px;
-    right: -200px;
-    width: 404px;
-    height: 404px;
-    border-radius: 50%;
-    background: #89a1ef;
-    filter: blur(190px);
-
-    @include mixins.devices(tablet) {
-      width: 199.928px;
-      height: 199.928px;
-      bottom: -400px;
-      right: -100px;
-      filter: blur(140px);
-    }
-  }
-
-
-  &__circleShadowBottom2 {
-    position: absolute;
-    z-index: 0;
-    bottom: -600px;
-    right: -30%;
-    width: 404px;
-    height: 404px;
-    border-radius: 50%;
-    background: #EF9CDA;
-    filter: blur(190px);
-
-    @include mixins.devices(tablet) {
-      display: none;
-    }
-  }
 }
 
 .anchor {
   position: relative;
   top: -95px;
+  left: 0;
 }

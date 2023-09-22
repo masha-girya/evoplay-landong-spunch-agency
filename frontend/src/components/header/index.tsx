@@ -1,12 +1,20 @@
-import Logo from "src/assets/images/Logo.png";
-import styles from "./index.module.scss";
-import { Nav } from "@components/nav";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
+import { Nav } from "@components/nav";
 import { SOCIALS } from "src/constants/socials";
+import styles from "./index.module.scss";
+import Logo from "src/assets/images/Logo.png";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleScrollTop = useCallback(() => {
+    setMenuOpen(false);
+    document.body.style.overflow = "auto";
+    document.body.style.position = "static";
+    document.getElementsByTagName("html")[0].style.overflow = "visible";
+    setTimeout(() => window.scrollTo(0, 0), 1);
+  }, []);
 
   const handleMobileMenu = () => {
     setMenuOpen(!menuOpen);
@@ -37,11 +45,11 @@ export const Header = () => {
       })}
     >
       <div className={styles.header__container}>
-        <a href="/" className={styles.header__logo}>
-          <img src={Logo.src} alt="EVO Logo" />
-        </a>
+        <div className={styles.header__logo}>
+          <img src={Logo.src} alt="EVO Logo" onClick={handleScrollTop} />
+        </div>
         <div className={styles.burger}>
-          <input onClick={handleMobileMenu} type="checkbox" />
+          <input type="checkbox" checked={menuOpen} onChange={handleMobileMenu} />
           <span></span>
         </div>
         <Nav />

@@ -15,7 +15,7 @@ export const Services = () => {
 
   const handleChoose = useCallback((item: (typeof SERVICES)[0]) => {
     setCurrService(null);
-    setTimeout(() => setCurrService(item), 400);
+    setTimeout(() => setCurrService(item), 300);
   }, []);
 
   useEffect(() => {

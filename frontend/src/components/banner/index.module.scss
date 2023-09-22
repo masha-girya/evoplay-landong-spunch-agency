@@ -31,13 +31,12 @@
     right: 246px;
     top: 21%;
     margin: auto;
-    animation: shieldAnimation 4s linear infinite;
+    // animation: shieldAnimation 4s linear infinite;
 
     &_mob {
       display: none;
       width: 130px;
       margin: 0 auto;
-      transform: translateX(-10px);
       animation: shieldAnimation 4s linear infinite;
 
       @include mixins.devices(tablet) {
@@ -114,7 +113,7 @@
       width: 788px;
       height: 788px;
       bottom: 77px;
-      left: -80%;
+      left: -263px;
     }
   }
 
@@ -232,22 +231,14 @@
 
 @keyframes shieldAnimation {
   0% {
-    transform: translateX(0px);
-  }
-
-  25% {
-    transform: translateX(-10px);
+    transform: rotate3d(0, 0, 0, 15deg);
   }
 
   50% {
-    transform: translateX(0);
-  }
-
-  75% {
-    transform: translateX(10px);
+    transform: rotate3d(-10, 20, 0, 25deg) rotate(10deg);
   }
 
   100% {
-    transform: translateX(0);
+    transform: rotate3d(0, 0, 0, 15deg);
   }
 }

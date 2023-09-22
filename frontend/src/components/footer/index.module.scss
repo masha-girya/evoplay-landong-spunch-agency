@@ -2,6 +2,7 @@
 
 .footer {
   background: #030C1D;
+  position: relative;
 
   &__container {
     padding: 40px 64px 0;
@@ -16,6 +17,7 @@
 
   img {
     margin-bottom: 30px;
+    cursor: pointer;
 
     @include mixins.devices(tablet) {
       width: 135px;
@@ -27,7 +29,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 26px;
-    padding: 20px 0;
+    padding: 20px 20px 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.30);
     width: 100%;
 
@@ -56,6 +58,55 @@
       @include mixins.devices(tablet) {
         margin-bottom: 16px;
       }
+
+      a {
+        svg {
+          border-radius: 50%;
+          transition: all .3s ease;
+
+          &:hover {
+            box-shadow: 0px 4px 46px 0px #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+.elements {
+  &__circleShadowBottom {
+    position: absolute;
+    z-index: 0;
+    top: -400px;
+    right: -240px;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #89a1ef;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      width: 199.928px;
+      height: 199.928px;
+      top: -111px;
+      right: -100px;
+      filter: blur(140px);
+    }
+  }
+
+  &__circleShadowBottom2 {
+    position: absolute;
+    z-index: 0;
+    top: -394px;
+    right: -340px;
+    width: 404px;
+    height: 404px;
+    border-radius: 50%;
+    background: #EF9CDA;
+    filter: blur(190px);
+
+    @include mixins.devices(tablet) {
+      display: none;
     }
   }
 }
