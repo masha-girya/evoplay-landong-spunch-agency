@@ -118,13 +118,9 @@
   }
 
   &__circleShadow1 {
-    position: absolute;
-    z-index: 0;
+    @include mixins.circleShadow(150px, #ef9cda);
     left: 6%;
     top: 50%;
-    width: 150px;
-    height: 150px;
-    background-color: #ef9cda;
     filter: blur(100px);
     box-shadow: 0px 0px 140px 0px #ef9cda;
     -webkit-box-shadow: 0px 0px 150px 0px #ef9cda;
@@ -136,17 +132,10 @@
   }
 
   &__circleShadow2 {
-    position: absolute;
-    z-index: 0;
+    @include mixins.circleShadow(150px, #89a1ef);
     top: 35%;
     left: 0;
-    width: 150px;
-    height: 150px;
-    background-color: #89a1ef;
     filter: blur(100px);
-    box-shadow: 0px 0px 140px 0px #89a1ef;
-    -webkit-box-shadow: 0px 0px 140px 0px #89a1ef;
-    -moz-box-shadow: 0px 0px 140px 0px #89a1ef;
 
     @include mixins.devices(tablet) {
       display: none;
@@ -154,18 +143,9 @@
   }
 
   &__circleShadow3 {
-    position: absolute;
-    z-index: 0;
+    @include mixins.circleShadow(60px, #121a6f);
     top: 58%;
     left: 10%;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #121a6f;
-    filter: blur(30px);
-    box-shadow: 0px 0px 60px 0px #121a6f;
-    -webkit-box-shadow: 0px 0px 60px 0px #121a6f;
-    -moz-box-shadow: 0px 0px 60px 0px #121a6f;
     opacity: 0.5;
 
     @include mixins.devices(tablet) {
@@ -189,47 +169,21 @@
   }
 
   &__circleShadowBottom1 {
-    position: absolute;
-    z-index: 0;
+    @include mixins.circleShadow(200px, #ef9cda);
     bottom: -18%;
     right: -4%;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: #ef9cda;
-    filter: blur(100px);
-
-    box-shadow: 0px 0px 200px 0px #ef9cda;
-    -webkit-box-shadow: 0px 0px 200px 0px #ef9cda;
-    -moz-box-shadow: 0px 0px 200px 0px #ef9cda;
 
     @include mixins.devices(tablet) {
-      width: 150px;
-      height: 150px;
       bottom: -50px;
       left: -2%;
-      filter: blur(100px);
-      box-shadow: 0px 0px 150px 0px #ef9cda;
-      -webkit-box-shadow: 0px 0px 150px 0px #ef9cda;
-      -moz-box-shadow: 0px 0px 150px 0px #ef9cda;
       opacity: 0.7;
     }
   }
 
   &__circleShadowBottom2 {
-    position: absolute;
-    z-index: 0;
+    @include mixins.circleShadow(200px, #89a1ef);
     bottom: -4%;
     right: 13%;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: #89a1ef;
-    filter: blur(100px);
-
-    box-shadow: 0px 0px 200px 0px #89a1ef;
-    -webkit-box-shadow: 0px 0px 200px 0px #89a1ef;
-    -moz-box-shadow: 0px 0px 200px 0px #89a1ef;
 
     @include mixins.devices(tablet) {
       display: none;

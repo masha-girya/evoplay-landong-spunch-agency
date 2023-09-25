@@ -32,7 +32,7 @@ export const Nav: React.FC<INav> = (props) => {
             })}
             onClick={closeMenu}
           >
-            <a href={item.link}>{item.name}</a>
+            <a href={`#${item.link}`}>{item.name}</a>
           </li>
         ))}
       </ul>

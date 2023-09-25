@@ -7,7 +7,7 @@ export const Solutions = () => {
 
   return (
     <article className={styles.solutions}>
-      <span id={NAV[0].link.replace("#", "")} className={styles.anchor}></span>
+      <span id={NAV[0].link} className={styles.anchor}></span>
       <div className={styles.elements__circle}></div>
       <div className={styles.elements__circle2}></div>
       <div className={styles.solutions__container}>
@@ -21,7 +21,7 @@ export const Solutions = () => {
             </p>
           </div>
           <div className={styles.solutions__intro__aiImg}>
-            <img src={AIImg.src} alt="AI banner" loading="lazy" />
+            <img src={AIImg.src} alt="AI banner" />
           </div>
         </section>
         <div className={styles.solutions__list}>

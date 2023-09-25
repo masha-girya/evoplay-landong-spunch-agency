@@ -133,3 +133,29 @@
     height: 517.536px;
   }
 }
+
+@mixin circleShadow($width, $background-color) {
+  position: absolute;
+  z-index: 0;
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  background: $background-color;
+  filter: blur(calc($width / 2));
+
+  box-shadow: 0px 0px $width 0px $background-color;
+  -webkit-box-shadow: 0px 0px $width 0px $background-color;
+  -moz-box-shadow: 0px 0px $width 0px $background-color;
+
+  @include devices(tablet) {
+    $tablet-width: calc($width / 1.3);
+
+    width: $tablet-width;
+    height: $tablet-width;
+    filter: blur(calc($width / 2));
+
+    box-shadow: 0px 0px $tablet-width 0px $background-color;
+    -webkit-box-shadow: 0px 0px $tablet-width 0px $background-color;
+    -moz-box-shadow: 0px 0px $tablet-width 0px $background-color;
+  }
+}

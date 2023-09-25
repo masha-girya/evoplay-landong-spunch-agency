@@ -6,11 +6,11 @@ import CImg from "@components/solutions/assets/Notebook.png";
 export const NAV = [
   {
     name: "Solutions",
-    link: "#solutions",
+    link: "solutions",
   },
   {
     name: "About Us",
-    link: "#about-us",
+    link: "about-us",
   },
 ];
 

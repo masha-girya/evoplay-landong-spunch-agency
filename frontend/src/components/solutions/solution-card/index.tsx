@@ -27,7 +27,7 @@ export const SolutionCard: React.FC<ISolutionCard> = (props) => {
         </a>
       </div>
       <div className={styles.solutionCard__image}>
-        <img src={image.src} alt={title} loading="lazy" />
+        <img src={image.src} alt={title} />
       </div>
     </section>
   );

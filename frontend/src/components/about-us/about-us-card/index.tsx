@@ -34,10 +34,24 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
       const renderPixels = () => {
         const isWebkit = /(safari|chrome)/.test(navigator.userAgent.toLowerCase());
-        return isWebkit ? 5 : 6;
+        if(!isWebkit) {
+          switch(window.innerWidth) {
+            case 1599:
+            case 1600:
+            case 1900:
+            case 1901:
+            case 1959:
+            case 1960:
+            case 1961:
+              return 4;
+            default:
+              return 3;
+          }
+        }
+        return 3;
       };
 
-      const first = Math.round(refHeight / 2) + padding - renderPixels();
+      const first = padding + 55 + renderPixels();
       const firstMob = padding + 13;
 
       return { refHeight, gap, first, firstMob };
