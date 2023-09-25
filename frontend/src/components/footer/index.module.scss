@@ -15,7 +15,7 @@
     }
   }
 
-  img {
+  &__logo {
     margin-bottom: 30px;
     cursor: pointer;
 
@@ -73,29 +73,17 @@
   }
 }
 
-.elements {
-  &__circleShadowBottom {
-    @include mixins.circleShadow(200px, #89a1ef);
-    top: -400px;
-    right: -150px;
+.shadow {
+  &__background {
+    position: absolute;
+    z-index: 0;
+    right: -100px;
+    bottom: 0;
 
     @include mixins.devices(tablet) {
-      top: -70px;
-      right: -60px;
-      filter: blur(65px);
-      opacity: .5;
-    }
-  }
-
-  &__circleShadowBottom2 {
-    @include mixins.circleShadow(200px, #EF9CDA);
-    top: -250px;
-    right: -170px;
-    height: 200px;
-    filter: blur(80px);
-
-    @include mixins.devices(tablet) {
-      display: none;
+      right: 0;
+      opacity: 0.6;
+      width: 100%;
     }
   }
 }
