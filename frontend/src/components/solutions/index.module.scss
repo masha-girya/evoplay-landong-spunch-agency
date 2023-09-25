@@ -1,0 +1,106 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.solutions {
+  position: relative;
+  @include mixins.border(bottom);
+
+  &__container {
+    padding: 80px 0;
+
+    @include mixins.devices(tablet) {
+      padding: 60px 0;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__textBox {
+      padding: 0 64px;
+
+      @include mixins.devices(tablet) {
+        padding: 0 16px;
+      }
+
+      h1 {
+        text-align: center;
+        @include mixins.blockTitle();
+        margin-bottom: 20px;
+      }
+  
+      p {
+        max-width: 684px;
+        @include mixins.bodyText();
+        text-align: center;
+        margin-bottom: 40px;
+      }
+    }
+
+    &__aiImg {
+      width: 100%;
+      margin-bottom: 60px;
+
+      @include mixins.devices(tablet) {
+        height: 140px;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 118px;
+
+    @include mixins.devices(smallDesk) {
+      padding: 0 16px;
+    }
+
+    @include mixins.devices(tablet) {
+      row-gap: 100px;
+    }
+  }
+}
+
+.elements {
+  &__circle {
+    @include mixins.circleBackground();
+    bottom: 146px;
+    right: -27%;
+
+    @include mixins.devices(tablet) {
+      bottom: 10px;
+      right: -395px;
+    }
+  }
+
+  &__circle2 {
+    @include mixins.circleBackground();
+    bottom: 308px;
+    right: -32%;
+
+    @include mixins.devices(tablet) {
+      bottom: 110px;
+      right: -462px;
+    }
+  }
+}
+
+.anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include mixins.devices(tablet) {
+    top: -95px;
+  }
+}

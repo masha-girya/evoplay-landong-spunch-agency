@@ -1,0 +1,148 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.services {
+  position: relative;
+  @include mixins.border(top);
+  @include mixins.border(bottom);
+
+  &__container {
+    padding: 80px 64px;
+
+    @include mixins.devices(tablet) {
+      padding: 60px 0;
+    }
+  }
+
+  &__tabList {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    margin-bottom: 41px;
+
+    @include mixins.devices(mobile) {
+      padding-left: 24px;
+      justify-content: flex-start;
+      max-width: 100%;
+      overflow-x: auto;
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+    }
+  }
+
+  &__generalContent {
+    width: 82%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mixins.devices(tablet) {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__title {
+      @include mixins.blockTitle();
+      margin-bottom: 20px;
+
+      @include mixins.devices(tablet) {
+        display: none;
+      }
+
+      &_mob {
+        display: none;
+        margin-bottom: 40px;
+
+        @include mixins.devices(tablet) {
+          display: inline;
+        }
+      }
+    }
+
+    &__text {
+      max-width: 572px;
+      width: 60%;
+
+      @include mixins.devices(tablet) {
+        order: 2;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      &__pBox {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+
+        p {
+          @include mixins.bodyText();
+          line-height: 24px;
+        }
+      }
+    }
+
+    &__imgBox {
+      width: 40%;
+      max-width: 446px;
+      height: 411px;
+
+      @include mixins.devices(tablet) {
+        width: 243px;
+        height: 224px;
+        margin-bottom: 40px;
+      }
+
+      img {
+        width: 100%;
+        animation: robotAppearance 1s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+    }
+  }
+}
+
+.elements {
+  &__circle {
+    @include mixins.circleBackground();
+    bottom: -25%;
+    left: -35%;
+
+    @include mixins.devices(tablet) {
+      bottom: -40px;
+      left: -100%;
+    }
+  }
+
+  &__circle2 {
+    @include mixins.circleBackground();
+    bottom: -42%;
+    left: -43%;
+
+    @include mixins.devices(tablet) {
+      bottom: -160px;
+      left: -120%;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes robotAppearance {
+  0% {
+    transform: translateX(100%) scale(0.5);
+  }
+
+  100% {
+    transform: translateX(0)  scale(1);
+  }
+}

@@ -1,0 +1,139 @@
+@use "src/styles/mixins.scss" as mixins;
+
+$border-radius: 20px;
+
+.aboutUs {
+  position: relative;
+
+  &__container {
+    padding: 80px 0;
+
+    @include mixins.devices(tablet) {
+      padding: 80px 0 60px;
+    }
+  }
+
+  &__head {
+    margin: 0 auto 100px;
+    max-width: 1178px;
+    width: 90%;
+    height: 218px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius;
+    border: 1px solid transparent;
+    @include mixins.borderRounded($border-radius);
+
+    @include mixins.devices(tablet) {
+      margin: 0 auto 60px;
+    }
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      border-radius: $border-radius;
+      height: 100%;
+      width: 100%;
+      z-index: 4;
+      background-color: #041028;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 5;
+      @include mixins.blockTitle();
+    }
+  }
+
+  &__list {
+    padding: 83px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 180px;
+    max-width: 968px;
+    margin: 0 auto;
+
+    @include mixins.devices(smallDesk) {
+      padding: 60px 16px;
+    }
+
+    @include mixins.devices(tablet) {
+      padding: 60px 16px;
+      padding-left: 56px;
+      gap: 120px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 367px;
+      height: 100%;
+      width: 1px;
+      background: linear-gradient(
+        97deg,
+        #ef9cda 0%,
+        #121a6f 61.98%,
+        #89a1ef 120%
+      );
+
+      @include mixins.devices(smallDesk) {
+        left: 32%;
+      }
+
+      @include mixins.devices(tablet) {
+        left: 26px;
+      }
+    }
+
+    &__circle {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: calc(368px - 8px);
+      width: 14px;
+      height: 14px;
+      background-color: #4ecdc4;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+
+      @include mixins.devices(smallDesk) {
+        left: calc(32% - 7px);
+      }
+
+      @include mixins.devices(tablet) {
+        left: 19px;
+      }
+    }
+  }
+}
+
+.elements {
+  &__circleShadow {
+    @include mixins.circleShadow(200px, #89a1ef);
+    top: 385px;
+    left: -6%;
+
+    @include mixins.devices(tablet) {
+      top: 268px;
+      left: -70px;
+    }
+  }
+}
+
+.anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include mixins.devices(tablet) {
+    top: -95px;
+  }
+}

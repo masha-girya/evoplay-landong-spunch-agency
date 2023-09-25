@@ -1,0 +1,49 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.nav {
+  @include mixins.devices(mobile) {
+    display: none;
+  }
+
+  &_mobMenu, &_footer {
+    height: max-content;
+
+    @include mixins.devices(mobile) {
+      display: block;
+    }
+  }
+}
+
+.navList {
+  display: flex;
+  column-gap: 40px;
+
+  @include mixins.devices(mobile) {
+    flex-direction: column;
+    row-gap: 29px;
+
+    &_footer {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    text-shadow: none;
+    transition: all .3s ease;
+
+    &:hover {
+      text-shadow: 0px 0px 20px #FFF;
+    }
+
+    @include mixins.devices(tablet) {
+      &:hover {
+        text-shadow: none;
+      }
+    }
+
+    &_mobMenu {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+}

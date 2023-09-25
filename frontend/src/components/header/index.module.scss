@@ -1,0 +1,153 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+
+  @include mixins.devices(mobile) {
+    height: 95px;
+    background-color: #041028;
+    position: fixed;
+    transition: height .3s ease;
+
+    &_open {
+      height: 100%;
+    }
+  }
+
+  &__container {
+    padding: 58px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+    @include mixins.devices(tablet) {
+      justify-content: space-between;
+      padding: 28px 16px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 64px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include mixins.devices(tablet) {
+      position: static;
+      width: 123px;
+    }
+  }
+}
+
+.burger {
+  position: relative;
+  width: 23px;
+  height: 20px;
+  display: none;
+
+  @include mixins.devices(mobile) {
+    display: block;
+  }
+
+  input {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked {
+      + .burger {
+        width: 20px;
+      }
+      + span {
+        background: transparent;
+
+        &:after {
+          top: 12px;
+          transform: rotate(45deg) translate(-1px, -12px);
+        }
+
+        &:before {
+          top: -12px;
+          transform: rotate(-45deg) translate(-4px, 16px);
+        }
+      }
+    }
+  }
+
+  span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin-top: 9px;
+    transition: all 0.1s;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      top: -9px;
+      transition: all 0.3s;
+    }
+
+    &:after {
+      top: 9px;
+    }
+  }
+}
+
+.mobMenu {
+  @include mixins.scrollBar();
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  height: 0;
+  overflow: hidden;
+  background-color: #041028;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 0;
+  transition: all 0.6s ease;
+
+  &_open {
+    height: calc(100% - 95px);
+    overflow: auto;
+    padding-bottom: 43px;
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__socials {
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+  }
+}

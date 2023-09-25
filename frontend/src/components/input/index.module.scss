@@ -1,0 +1,37 @@
+@use "src/styles/mixins.scss" as mixins;
+
+$border-radius: 10px;
+
+.inputBox {
+  width: 100%;
+  height: max-content;
+  position: relative;
+  z-index: 1;
+  border: 0.5px solid transparent;
+  border-radius: $border-radius;
+  @include mixins.borderRounded($border-radius);
+}
+
+.input {
+  position: relative;
+  z-index: 3;
+  border: none;
+  border-radius: $border-radius;
+  background: #041028;
+  outline: none;
+  height: 48px;
+  padding: 16.8px 20px;
+  width: 100%;
+  color: #FFF;
+  font-family: "Basier Circle";
+  font-size: 16px;
+  font-weight: 400;
+
+  &::placeholder {
+    color: #FFF;
+    font-family: "Basier Circle";
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 1;
+  }
+}

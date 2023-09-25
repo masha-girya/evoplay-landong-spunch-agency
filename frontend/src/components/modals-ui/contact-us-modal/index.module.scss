@@ -1,0 +1,80 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.contactModal {
+  width: 504px;
+  height: 527px;
+  padding: 30px 40px 40px;
+
+  @include mixins.devices(tablet) {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    min-width: 100%;
+    padding: 30px 20px;
+  }
+
+  &__header {
+    position: relative;
+    margin-bottom: 28px;
+
+    img {
+      width: 91px;
+      height: 30px;
+    }
+
+    &__closeIcon {
+      position: absolute;
+      top: 0;
+      right: -10px;
+      cursor: pointer;
+      transform: rotate(0);
+      transition: all .3s ease;
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__main {
+    h1 {
+      @include mixins.blockTitle();
+      font-size: 40px;
+      margin-bottom: 18px;
+
+      @include mixins.devices(tablet) {
+        font-size: 26px;
+        margin-bottom: 14px;
+      }
+    }
+  
+    p {
+      @include mixins.bodyText();
+      margin-bottom: 32px;
+
+      @include mixins.devices(tablet) {
+        font-size: 18px;
+      }
+    }
+
+    &__form {
+      &__types {
+        display: flex;
+        column-gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      &__inputs {
+        display: flex;
+        flex-direction: column;
+        row-gap: 14px;
+        margin-bottom: 40px;
+      }
+
+      &__btn {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
