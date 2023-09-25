@@ -210,11 +210,9 @@
   0% {
     transform: rotate3d(0, 0, 0, 15deg);
   }
-
   50% {
     transform: rotate3d(-10, 20, 0, 25deg) rotate(10deg);
   }
-
   100% {
     transform: rotate3d(0, 0, 0, 15deg);
   }
