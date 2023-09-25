@@ -82,7 +82,8 @@
     @include mixins.devices(tablet) {
       top: -70px;
       right: -60px;
-      filter: blur(60px);
+      filter: blur(65px);
+      opacity: .5;
     }
   }
 
