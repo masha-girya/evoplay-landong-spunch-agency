@@ -13,6 +13,7 @@
   }
 
   @include mixins.devices(tablet) {
+    height: calc(100vh - 95px);
     padding-top: 95px;
     min-height: auto;
   }
