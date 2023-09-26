@@ -44,10 +44,6 @@
 
       @include mixins.devices(tablet) {
         object-position: right center;
-
-        &__securityImg {
-          object-position: center;
-        }
       }
     }
 

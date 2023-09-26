@@ -43,9 +43,7 @@ export const Service: React.FC<IService> = (props) => {
                   src={currService.image.src}
                   alt={currService.tabTitle}
                   loading="lazy"
-                  className={classNames(styles.service__box__image, {
-                    [styles.service__box__image_securityImg]: currService.tabTitle.includes("Security")
-                  })}
+                  className={styles.service__box__image}
                 />
               )}
               <div className={styles.service__box__text}>

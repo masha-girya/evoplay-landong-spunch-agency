@@ -107,6 +107,13 @@
       width: 100%;
     }
 
+    button {
+      @include mixins.devices(tablet) {
+        position: relative;
+        left: -16px;
+      }
+    }
+
     h1 {
       @include mixins.mainTitle();
       margin-bottom: 26px;
