@@ -2,6 +2,7 @@ import { useMemo, useRef } from "react";
 import { Transition } from "react-transition-group";
 import { SERVICES } from "src/constants";
 import styles from "./index.module.scss";
+import classNames from "classnames";
 
 interface IService {
   currService: (typeof SERVICES)[0] | null;
@@ -42,6 +43,9 @@ export const Service: React.FC<IService> = (props) => {
                   src={currService.image.src}
                   alt={currService.tabTitle}
                   loading="lazy"
+                  className={classNames(styles.service__box__image, {
+                    [styles.service__box__image_securityImg]: currService.tabTitle.includes("Security")
+                  })}
                 />
               )}
               <div className={styles.service__box__text}>

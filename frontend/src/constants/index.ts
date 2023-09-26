@@ -1,4 +1,6 @@
-import ServiceImg from "@components/services/assets/Service.png";
+import SecurityImg from "@components/services/assets/Security.png";
+import FinancialImg from "@components/services/assets/Financial.png";
+import CorporateImg from "@components/services/assets/Corporate.png";
 import AImg from "@components/solutions/assets/VPN.png";
 import BImg from "@components/solutions/assets/Phone.png";
 import CImg from "@components/solutions/assets/Notebook.png";
@@ -17,21 +19,21 @@ export const NAV = [
 export const SERVICES = [
   {
     tabTitle: "National Security",
-    image: ServiceImg,
+    image: SecurityImg,
     imageTitle: "Lorem ipsum dolor sit amet",
     imageText:
       "Lorem ipsum dolor sit amet consectetur. Sed tincidunt aliquet purus dignissim amet id velit euismod. Mauris posuere amet dignissim ornare.",
   },
   {
     tabTitle: "Corporate",
-    image: ServiceImg,
+    image: CorporateImg,
     imageTitle: "Lorem ipsum dolor sit amet 2",
     imageText:
       "Lorem ipsum dolor sit amet consectetur. Sed tincidunt aliquet purus dignissim amet id velit euismod. Mauris posuere amet dignissim ornare. 2",
   },
   {
     tabTitle: "Financial",
-    image: ServiceImg,
+    image: FinancialImg,
     imageTitle: "Lorem ipsum dolor sit amet 3",
     imageText:
       "Lorem ipsum dolor sit amet consectetur. Sed tincidunt aliquet purus dignissim amet id velit euismod. Mauris posuere amet dignissim ornare. 3",

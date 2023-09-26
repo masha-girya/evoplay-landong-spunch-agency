@@ -13,9 +13,9 @@
   }
 
   @include mixins.devices(tablet) {
-    height: calc(100vh - 95px);
+    min-height: calc(100vh - 95px);
     padding-top: 95px;
-    min-height: auto;
+    height: auto;
   }
 
   &__imgBox {
@@ -38,6 +38,7 @@
       align-self: flex-end;
       position: relative;
       right: 0;
+      height: 235px;
 
       @include mixins.devices(tablet) {
         display: flex;
@@ -98,9 +99,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 35px;
       padding-left: 16px;
-      width: auto;
       justify-content: space-between;
       padding-bottom: 60px;
       padding-top: 40px;

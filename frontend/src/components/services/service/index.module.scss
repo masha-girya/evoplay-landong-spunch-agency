@@ -34,13 +34,21 @@
       padding: 0 15px;
     }
 
-    img {
+    &__image {
       position: absolute;
       object-fit: cover;
       height: 100%;
       width: 100%;
       z-index: 1;
       animation: fadeIn 0.3s ease-in;
+
+      @include mixins.devices(tablet) {
+        object-position: right center;
+
+        &__securityImg {
+          object-position: center;
+        }
+      }
     }
 
     &__text {
