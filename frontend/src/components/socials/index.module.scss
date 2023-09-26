@@ -1,0 +1,61 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.socials {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  @include mixins.devices(tablet) {
+    margin-bottom: 16px;
+  }
+
+  &__item {
+    svg {
+      path,
+      rect {
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:active {
+        path {
+          fill: #4ecdc4;
+        }
+      }
+
+      @include mixins.devices(tablet) {
+        &:hover {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+
+    &_twitter {
+      svg {
+        &:hover,
+        &:active {
+          path {
+            fill: #000;
+          }
+          rect {
+            fill: #4ecdc4;
+          }
+
+          @include mixins.devices(tablet) {
+            &:hover {
+              path {
+                fill: #000;
+              }
+              rect {
+                fill: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
