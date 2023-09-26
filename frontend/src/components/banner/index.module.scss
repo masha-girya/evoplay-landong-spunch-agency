@@ -10,7 +10,7 @@
 
   @include mixins.devices(tablet) {
     padding-top: 95px;
-    height: max-content;
+    min-height: auto;
   }
 
   &__imgBox {
@@ -20,8 +20,17 @@
     display: flex;
     flex-direction: column;
 
-    @include mixins.devices(tablet) {
+    @include mixins.devices(smallDesk) {
       display: none;
+    }
+
+    &_mob {
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
     }
   }
 
@@ -35,11 +44,11 @@
 
     &_mob {
       display: none;
-      width: 130px;
+      width: 89px;
       margin: 0 auto;
       animation: shieldAnimation 4s linear infinite;
 
-      @include mixins.devices(tablet) {
+      @include mixins.devices(smallDesk) {
         display: flex;
       }
     }
@@ -54,9 +63,10 @@
     &_mob {
       display: none;
 
-      @include mixins.devices(tablet) {
+      @include mixins.devices(smallDesk) {
         display: flex;
-        width: 100%;
+        width: max-content;
+        height: 122px;
       }
     }
   }
@@ -66,21 +76,30 @@
     z-index: 3;
     padding-left: 64px;
 
+    @include mixins.devices(smallDesk) {
+      width: 100%;
+    }
+
     @include mixins.devices(tablet) {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-left: 16px;
+      width: auto;
+      justify-content: space-between;
       padding-bottom: 60px;
-      padding-top: 60px;
+      padding-top: 40px;
+      height: 100%;
     }
 
     h1 {
       @include mixins.mainTitle();
       margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
 
       @include mixins.devices(tablet) {
-        margin-bottom: 40px;
+        margin-bottom: 0;
       }
     }
 
@@ -92,7 +111,8 @@
 
       @include mixins.devices(tablet) {
         padding-right: 16px;
-        margin-top: 40px;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
   }

@@ -30,18 +30,20 @@ export const Banner = () => {
       <div className={styles.elements__circleBottom}></div>
       <div className={styles.banner__text}>
         <h1>Infinite AI Driven Intelligence</h1>
-        <img
-          className={styles.banner__shieldImg_mob}
-          src={ShieldImg.src}
-          alt="Shield image"
-          loading="lazy"
-        />
-        <img
-          className={styles.banner__robotImg_mob}
-          src={RobotHandImg.src}
-          alt="Robot's hand image"
-          loading="lazy"
-        />
+        <div className={styles.banner__imgBox_mob}>
+          <img
+            className={styles.banner__shieldImg_mob}
+            src={ShieldImg.src}
+            alt="Shield image"
+            loading="lazy"
+          />
+          <img
+            className={styles.banner__robotImg_mob}
+            src={RobotHandImg.src}
+            alt="Robot's hand image"
+            loading="lazy"
+          />
+        </div>
         <p>
           EVO provides infinite AI driven Intelligence for National Security and
           corporate organizations to make threat and opportunity related

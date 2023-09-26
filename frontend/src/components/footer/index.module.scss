@@ -5,6 +5,8 @@
   position: relative;
 
   &__container {
+    position: relative;
+    z-index: 1;
     padding: 40px 64px 0;
     display: flex;
     flex-direction: column;
@@ -59,13 +61,29 @@
         margin-bottom: 16px;
       }
 
-      a {
+      &__item {
         svg {
-          border-radius: 50%;
-          transition: all .3s ease;
+          path, rect {
+            transition: all .3s ease-in-out;
+          }
 
           &:hover {
-            box-shadow: 0px 4px 46px 0px #FFF;
+            path {
+              fill: #4ECDC4;
+            }
+          }
+        }
+
+        &_twitter {
+          svg {
+            &:hover {
+              path {
+                fill: black;
+              }
+              rect {
+                fill: #4ECDC4;
+              }
+            }
           }
         }
       }

@@ -40,9 +40,14 @@ export const Header = () => {
         <a href="/" className={styles.header__logo}>
           <img src={Logo.src} alt="EVO Logo" />
         </a>
-        <div className={styles.burger}>
-          <input type="checkbox" checked={menuOpen} onChange={handleMobileMenu} />
-          <span></span>
+        <div className={styles.burger} onClick={handleMobileMenu}>
+          {Array(3).fill(0).map((item, i) => (
+            <div
+            className={classNames(styles[`burger__${i + 1}`], {
+              [styles[`burger__${i + 1}_open`]]: menuOpen,
+            })}
+          ></div>
+          ))}
         </div>
         <Nav />
       </div>
@@ -55,11 +60,11 @@ export const Header = () => {
           <Nav isMobMenu closeMenu={handleMobileMenu} />
         </div>
         <div className={styles.mobMenu__socials}>
-            {SOCIALS.map((item) => (
-              <a key={item.title} href={item.link} title={item.title}>
-                {item.Icon}
-              </a>
-            ))}
+          {SOCIALS.map((item) => (
+            <a key={item.title} href={item.link} title={item.title}>
+              {item.Icon}
+            </a>
+          ))}
         </div>
       </div>
     </header>

@@ -10,15 +10,13 @@ interface IModal {
   isOpen: boolean;
   isOpenCallback: (state: boolean) => void;
   clickOutside?: () => void;
-  isFullScreen?: boolean;
 }
 
 export const Modal: React.FC<IModal> = (props) => {
-  const { isOpen, isFullScreen, isOpenCallback, clickOutside } = props;
+  const { isOpen, isOpenCallback, clickOutside } = props;
 
   const [open, setOpen] = useState(isOpen);
   const ref = useRef(null);
-  const { isMobile } = useDevice();
   const transRef = useRef(null);
   const duration = 200;
 
@@ -81,9 +79,7 @@ export const Modal: React.FC<IModal> = (props) => {
         >
           <div
             ref={ref}
-            className={classNames(styles.modal__body, {
-              [styles.modal__body_fullScreen]: isFullScreen,
-            })}
+            className={styles.modal__body}
           >
             {props.children}
           </div>

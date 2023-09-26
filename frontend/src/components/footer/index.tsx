@@ -6,6 +6,7 @@ import styles from "./index.module.scss";
 import Logo from "src/assets/images/Logo.png";
 import BackgroundImg from "./assets/Background.png";
 import BackgroundMobImg from "./assets/BackgroundMob.png";
+import classNames from "classnames";
 
 export const Footer = () => {
   const { isTablet, isMobile } = useDevice();
@@ -28,7 +29,14 @@ export const Footer = () => {
           </div>
           <div className={styles.footer__bottom__socials}>
             {SOCIALS.map((item) => (
-              <a key={item.title} href={item.link} title={item.title}>
+              <a
+                key={item.title}
+                href={item.link}
+                title={item.title}
+                className={classNames(styles.footer__bottom__socials__item, {
+                  [styles.footer__bottom__socials__item_twitter]: item.title.includes("Twitter")
+                })}
+              >
                 {item.Icon}
               </a>
             ))}
