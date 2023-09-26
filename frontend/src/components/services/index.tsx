@@ -36,6 +36,8 @@ export const Services = () => {
 
   return (
     <article className={styles.services}>
+      <div className={styles.elements__circle}></div>
+      <div className={styles.elements__circle2}></div>
       <div className={styles.services__container}>
         <ul className={styles.services__tabList}>
           {SERVICES.map((item) => (
@@ -74,8 +76,6 @@ export const Services = () => {
           </div>
         </section>
       </div>
-      <div className={styles.elements__circle}></div>
-      <div className={styles.elements__circle2}></div>
     </article>
   );
 };

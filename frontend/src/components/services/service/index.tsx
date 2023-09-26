@@ -28,32 +28,30 @@ export const Service: React.FC<IService> = (props) => {
   };
 
   return (
-    <section className={styles.service}>
-      <Transition
-        in={currService !== null}
-        nodeRef={transRef}
-        timeout={duration}
-      >
+    <div className={styles.serviceContainer}>
+      <Transition in={currService !== null} nodeRef={transRef} timeout={duration}>
         {(state) => (
-          <div
-            ref={transRef}
-            className={styles.service__box}
+          <section
             style={{ ...defaultStyles, ...transitionStyles[state] }}
+            ref={transRef}
+            className={styles.service}
           >
-            {currService && (
-              <img
-                src={currService.image.src}
-                alt={currService.tabTitle}
-                loading="lazy"
-              />
-            )}
-            <div className={styles.service__box__text}>
-              <h1>{currService?.imageTitle}</h1>
-              <p>{currService?.imageText}</p>
+            <div className={styles.service__box}>
+              {currService && (
+                <img
+                  src={currService.image.src}
+                  alt={currService.tabTitle}
+                  loading="lazy"
+                />
+              )}
+              <div className={styles.service__box__text}>
+                <h1>{currService?.imageTitle}</h1>
+                <p>{currService?.imageText}</p>
+              </div>
             </div>
-          </div>
+          </section>
         )}
       </Transition>
-    </section>
+    </div>
   );
 };

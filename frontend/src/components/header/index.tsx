@@ -4,6 +4,7 @@ import { Nav } from "@components/nav";
 import { SOCIALS } from "src/constants/socials";
 import styles from "./index.module.scss";
 import Logo from "src/assets/images/Logo.png";
+import { Socials } from "@components/socials";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,9 +41,17 @@ export const Header = () => {
         <a href="/" className={styles.header__logo}>
           <img src={Logo.src} alt="EVO Logo" />
         </a>
-        <div className={styles.burger}>
-          <input type="checkbox" checked={menuOpen} onChange={handleMobileMenu} />
-          <span></span>
+        <div className={styles.burger} onClick={handleMobileMenu}>
+          {Array(3)
+            .fill(0)
+            .map((item, i) => (
+              <div
+                key={i}
+                className={classNames(styles[`burger__${i + 1}`], {
+                  [styles[`burger__${i + 1}_open`]]: menuOpen,
+                })}
+              ></div>
+            ))}
         </div>
         <Nav />
       </div>
@@ -55,11 +64,7 @@ export const Header = () => {
           <Nav isMobMenu closeMenu={handleMobileMenu} />
         </div>
         <div className={styles.mobMenu__socials}>
-            {SOCIALS.map((item) => (
-              <a key={item.title} href={item.link} title={item.title}>
-                {item.Icon}
-              </a>
-            ))}
+          <Socials />
         </div>
       </div>
     </header>

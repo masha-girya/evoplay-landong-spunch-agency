@@ -54,7 +54,7 @@ export const ContactUsModal: React.FC<IContactUsModal> = (props) => {
             <Input placeholder="Email" value={email} onChange={setEmail} />
           </div>
           <div className={styles.contactModal__main__form__btn}>
-            <Button name="Submit" onClick={handleSubmit} />
+            <Button name="Submit" onClick={handleSubmit} fullWidthMob />
           </div>
         </form>
       </div>

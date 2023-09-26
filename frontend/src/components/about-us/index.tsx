@@ -5,6 +5,8 @@ import { ABOUT_US, NAV } from "src/constants";
 import styles from "./index.module.scss";
 import Image from "./assets/Handshake.png";
 import ImageMob from "./assets/HandshakeMob.png";
+import BackgroundImg from "./assets/Background.png";
+import BackgroundMobImg from "./assets/BackgroundMob.png";
 
 export const AboutUs = () => {
   const [mainItemIndex, setMainItemIndex] = useState(0);
@@ -14,7 +16,10 @@ export const AboutUs = () => {
   return (
     <article className={styles.aboutUs}>
       <span id={NAV[1].link} className={styles.anchor}></span>
-      <div className={styles.elements__circleShadow}></div>
+      <img
+        className={styles.shadow__background}
+        src={isTablet || isMobile ? BackgroundMobImg.src : BackgroundImg.src}
+      />
       <div className={styles.aboutUs__container}>
         <section className={styles.aboutUs__head}>
           <img
