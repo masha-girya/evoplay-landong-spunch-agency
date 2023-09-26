@@ -33,6 +33,12 @@
       &:hover {
         transform: rotate(90deg);
       }
+
+      @include mixins.devices(tablet) {
+        &:hover {
+          transform: rotate(0);
+        }
+      }
     }
   }
 
