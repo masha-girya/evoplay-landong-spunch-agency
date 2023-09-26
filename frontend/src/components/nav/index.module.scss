@@ -34,12 +34,6 @@
       &:hover {
         color: #4ECDC4;
       }
-
-      @include mixins.devices(tablet) {
-        &:hover {
-          color: #FFFFFF;
-        }
-      }
     }
 
     &_mobMenu {
