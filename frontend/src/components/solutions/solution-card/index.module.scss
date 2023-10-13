@@ -19,6 +19,14 @@
   &__textBox {
     max-width: 356px;
 
+    &_B {
+      max-width: 441px;
+    }
+
+    &_C {
+      max-width: 410px;
+    }
+
     &_even {
       order: 2;
 
@@ -45,6 +53,7 @@
 
     p {
       @include mixins.bodyText();
+      font-size: 16px;
       margin-bottom: 30px;
     }
   }

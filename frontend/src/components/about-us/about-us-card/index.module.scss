@@ -61,14 +61,16 @@
 .container {
   position: relative;
   width: 100%;
-  height: max-content;
+  height: 150px;
+  display: flex;
+  align-items: center;
 
   &__circleBox {
     position: absolute;
     z-index: 2;
     width: 20px;
     height: 20px;
-    left: calc(367px - 10px);
+    left: calc(470px - 10px);
     top: 55px;
     display: flex;
     justify-content: center;
@@ -81,8 +83,12 @@
         );
     border-radius: 50%;
 
+    &_last {
+      top: 64px;
+    }
+
     @include mixins.devices(smallDesk) {
-      left: 30%;
+      left: 30.4%;
     }
 
     @include mixins.devices(tablet) {

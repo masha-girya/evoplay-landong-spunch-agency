@@ -128,8 +128,8 @@
     p {
       color: #ffffff;
       @include mixins.bodyText();
-      margin-bottom: 40px;
       max-width: 600px;
+      margin-bottom: 40px;
 
       @include mixins.devices(tablet) {
         padding-right: 16px;

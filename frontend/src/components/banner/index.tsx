@@ -23,9 +23,12 @@ export const Banner = () => {
       />
       <img
         className={styles.shadow__background}
-        src={(isTablet || isMobile) ? BackgroundMobImg.src : BackgroundImg.src}
+        src={isTablet || isMobile ? BackgroundMobImg.src : BackgroundImg.src}
       />
-      <img className={styles.shadow__backgroundBottom} src={BackgroundBottomImg.src} />
+      <img
+        className={styles.shadow__backgroundBottom}
+        src={BackgroundBottomImg.src}
+      />
       <div className={styles.elements__circle}></div>
       <div className={styles.elements__circleBottom}></div>
       <div className={styles.banner__text}>
@@ -45,9 +48,16 @@ export const Banner = () => {
           />
         </div>
         <p>
-          EVO provides infinite AI driven Intelligence for National Security and
-          corporate organizations to make threat and opportunity related
-          decisions with confidence
+          EVO furnishes boundless AI-driven intelligence, enabling both national
+          security agencies and corporate entities to approach decisions
+          concerning threats and opportunities with a high degree of confidence.
+          <br/>
+          <br/>
+          This limitless wellspring of knowledge aids in assessing potential
+          risks and identifying growth prospects, ultimately fostering a secure
+          and prosperous future. EVO's comprehensive insights empower users to
+          make informed choices that are essential for effective security
+          measures and strategic business planning.
         </p>
         <Button name="Get Started" onClick={() => setIsOpenModal(true)} />
       </div>

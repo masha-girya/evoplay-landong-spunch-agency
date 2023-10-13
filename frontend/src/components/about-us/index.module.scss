@@ -1,6 +1,7 @@
 @use "src/styles/mixins.scss" as mixins;
 
 $border-radius: 20px;
+$pile-position-left: 470px;
 
 .aboutUs {
   position: relative;
@@ -56,7 +57,7 @@ $border-radius: 20px;
     justify-content: center;
     align-items: center;
     gap: 180px;
-    max-width: 968px;
+    max-width: 1081px;
     margin: 0 auto;
 
     @include mixins.devices(smallDesk) {
@@ -74,7 +75,7 @@ $border-radius: 20px;
       position: absolute;
       z-index: 0;
       top: 0;
-      left: 367px;
+      left: $pile-position-left;
       height: 100%;
       width: 1px;
       background: linear-gradient(
@@ -97,7 +98,7 @@ $border-radius: 20px;
       position: absolute;
       z-index: 3;
       top: 0;
-      left: calc(368px - 8px);
+      left: calc($pile-position-left - 7px);
       width: 14px;
       height: 14px;
       background-color: #4ecdc4;

@@ -33,9 +33,11 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       const padding = isDesktop ? 83 : 60;
 
       const renderPixels = () => {
-        const isWebkit = /(safari|chrome)/.test(navigator.userAgent.toLowerCase());
-        if(!isWebkit) {
-          switch(window.innerWidth) {
+        const isWebkit = /(safari|chrome)/.test(
+          navigator.userAgent.toLowerCase()
+        );
+        if (!isWebkit) {
+          switch (window.innerWidth) {
             case 1599:
             case 1600:
             case 1900:
@@ -64,9 +66,9 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       if (ref.current && refCircle.current) {
         const { refHeight, first, firstMob, gap } = getRefPosition(ref);
 
-        const breakpoint1 = (isMobile || isTablet) ? firstMob : first;
+        const breakpoint1 = isMobile || isTablet ? firstMob : first;
         const breakpoint2 = refHeight + breakpoint1 + gap;
-        const breakpoint3 = refHeight + breakpoint2 + gap;
+        const breakpoint3 = refHeight + breakpoint2 + gap; //translateY(801.5px);
 
         switch (index) {
           case -1:
@@ -78,17 +80,19 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
             break;
           case 2:
           case 100:
-            setTop(breakpoint3);
+            isDesktop ? setTop(breakpoint3 + 9) : setTop(breakpoint3);
+            // setTop(breakpoint3);
             break;
           default:
-            setTop((prev: number) => prev);
+            // setTop((prev: number) => prev);
+            break;
         }
       }
     },
     [isMobile, isTablet, isDesktop, ref]
   );
 
-  const goToSection = useCallback(() => {
+  const goToSection = useCallback((index) => {
     if (ref.current) {
       ref.current.scrollIntoView({
         behavior: "smooth",
@@ -96,9 +100,9 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       });
 
       setMainItemIndex(index);
-      changeTopPosition(index);
+      setTimeout(() => changeTopPosition(index), 100);
     }
-  }, [ref, index, isMobile, isTablet, isDesktop]);
+  }, [ref, isMobile, isTablet, isDesktop]);
 
   useEffect(() => {
     if (ref.current) {
@@ -127,11 +131,16 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
   return (
     <div className={styles.container} ref={ref}>
-      <div className={styles.container__circleBox} ref={refCircle}>
+      <div
+        className={classNames(styles.container__circleBox, {
+          [styles.container__circleBox_last]: index === 2,
+        })}
+        ref={refCircle}
+      >
         <div className={styles.container__circleBox__circle}></div>
       </div>
       <section
-        onClick={goToSection}
+        onClick={() => goToSection(index)}
         className={classNames(styles.aboutUsCard, {
           [styles.aboutUsCard_main]: mainItemIndex === index,
         })}
