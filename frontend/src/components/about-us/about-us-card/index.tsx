@@ -29,7 +29,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
   const getRefPosition = useCallback(
     (ref: any) => {
       const refHeight = ref.current.getBoundingClientRect().height;
-      const gap = isMobile || isTablet ? 120 : 180;
+      const gap = isMobile || isTablet ? 60 : 180;
       const padding = isDesktop ? 83 : 60;
 
       const renderPixels = () => {
