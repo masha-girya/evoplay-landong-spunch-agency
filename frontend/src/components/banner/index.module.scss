@@ -136,7 +136,7 @@
     p {
       color: #ffffff;
       @include mixins.bodyText();
-      max-width: 600px;
+      max-width: 744px;
       margin-bottom: 40px;
 
       @include mixins.devices(tablet) {

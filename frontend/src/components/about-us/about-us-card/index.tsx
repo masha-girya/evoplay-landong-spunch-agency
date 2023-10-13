@@ -68,7 +68,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
         const breakpoint1 = isMobile || isTablet ? firstMob : first;
         const breakpoint2 = refHeight + breakpoint1 + gap;
-        const breakpoint3 = refHeight + breakpoint2 + gap; //translateY(801.5px);
+        const breakpoint3 = refHeight + breakpoint2 + gap;
 
         switch (index) {
           case -1:
@@ -81,10 +81,8 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
           case 2:
           case 100:
             isDesktop ? setTop(breakpoint3 + 9) : setTop(breakpoint3);
-            // setTop(breakpoint3);
             break;
           default:
-            // setTop((prev: number) => prev);
             break;
         }
       }
@@ -92,17 +90,14 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
     [isMobile, isTablet, isDesktop, ref]
   );
 
-  const goToSection = useCallback((index) => {
+  const goToSection = useCallback(() => {
     if (ref.current) {
       ref.current.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
-
-      setMainItemIndex(index);
-      setTimeout(() => changeTopPosition(index), 100);
     }
-  }, [ref, isMobile, isTablet, isDesktop]);
+  }, [ref]);
 
   useEffect(() => {
     if (ref.current) {
@@ -140,7 +135,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
         <div className={styles.container__circleBox__circle}></div>
       </div>
       <section
-        onClick={() => goToSection(index)}
+        onClick={goToSection}
         className={classNames(styles.aboutUsCard, {
           [styles.aboutUsCard_main]: mainItemIndex === index,
         })}

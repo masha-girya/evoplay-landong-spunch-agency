@@ -65,6 +65,12 @@
   display: flex;
   align-items: center;
 
+  @include mixins.devices(mobile) {
+    height: 219px;
+    display: flex;
+    align-items: flex-start;
+  }
+
   &__circleBox {
     position: absolute;
     z-index: 2;
