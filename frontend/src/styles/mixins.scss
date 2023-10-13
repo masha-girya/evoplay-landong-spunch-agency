@@ -58,12 +58,6 @@
   }
 }
 
-@mixin middleTitle {
-
-  @include devices(tablet) {
-  }
-}
-
 @mixin bodyText {
   font-size: 20px;
   font-weight: 400;

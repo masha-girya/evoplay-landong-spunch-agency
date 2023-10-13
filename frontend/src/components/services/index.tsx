@@ -59,11 +59,13 @@ export const Services = () => {
               styles.services__generalContent__title_mob
             )}
           >
-            Economizing time, full understanding, one result
+            Economizing time,
+              <br/>
+            full understanding, one result
           </h1>
           <div className={styles.services__generalContent__text} ref={ref}>
             <h1 className={styles.services__generalContent__title}>
-            Economizing time, full understanding, one result
+              Economizing time, full understanding, one result
             </h1>
             <div className={styles.services__generalContent__text__pBox}>
               {SERVICES_TEXT.map((item, i) => (

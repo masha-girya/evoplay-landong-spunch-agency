@@ -1,0 +1,29 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.principles {
+  display: flex;
+  padding: 120px 253px 100px;
+  justify-content: space-between;
+
+  @include mixins.devices(smallDesk) {
+    padding: 120px 64px 100px;
+  }
+
+  @include mixins.devices(tablet) {
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 0 60px;
+    margin: 0 auto;
+    width: max-content;
+  }
+
+  &__item {
+    color: rgba(255, 255, 255, 0.75);
+    @include mixins.bodyText();
+    font-weight: 700;
+
+    @include mixins.devices(tablet) {
+      text-align: center;
+    }
+  }
+}

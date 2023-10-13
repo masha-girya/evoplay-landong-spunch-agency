@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import styles from "./index.module.scss";
 import { NAV } from "src/constants";
+import { useRouter } from "next/router";
 
 interface INav {
   isFooter?: boolean;
@@ -10,6 +11,7 @@ interface INav {
 
 export const Nav: React.FC<INav> = (props) => {
   const { isMobMenu, isFooter, closeMenu } = props;
+  const router = useRouter();
 
   return (
     <nav

@@ -84,3 +84,5 @@ export const ABOUT_US = [
     text: "Our core values help shape our business decisions, define our culture, and inspire our growth. Through our choices, words, and actions, we strive to live our values each and every day."
   },
 ]
+
+export const PRINCIPLES = ["Integrity", "Innovation", "Accountability", "Honesty", "Respect"];

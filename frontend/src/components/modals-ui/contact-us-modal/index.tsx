@@ -32,8 +32,8 @@ export const ContactUsModal: React.FC<IContactUsModal> = (props) => {
         </button>
       </div>
       <div className={styles.contactModal__main}>
-        <h1>Lorem ipsum</h1>
-        <p>Lorem ipsum</p>
+        <h1>Leave a request</h1>
+        <p>We will contact you shortly</p>
         <form className={styles.contactModal__main__form}>
           <div className={styles.contactModal__main__form__types}>
             <Button

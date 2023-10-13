@@ -20,12 +20,14 @@
     margin-bottom: 41px;
 
     @include mixins.devices(mobile) {
+      column-gap: 30px;
       padding-left: 24px;
       justify-content: flex-start;
       max-width: 100%;
       overflow-x: auto;
       -ms-overflow-style: none; /* Internet Explorer 10+ */
       scrollbar-width: none; /* Firefox */
+
       &::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
       }
@@ -57,6 +59,8 @@
         margin-bottom: 40px;
 
         @include mixins.devices(tablet) {
+          padding: 0 15px;
+          width: 100%;
           display: inline;
         }
       }
@@ -70,7 +74,7 @@
         order: 2;
         width: 100%;
         max-width: 100%;
-        padding: 0 16px;
+        padding: 0 15px;
       }
 
       &__pBox {

@@ -4,6 +4,7 @@ import { Banner } from "@components/banner";
 import { Header } from "@components/header";
 import { Services } from "@components/services";
 import { Solutions } from "@components/solutions";
+import { Principles } from "@components/principles";
 import { ContactUs } from "@components/contact-us";
 import { Footer } from "@components/footer";
 import styles from "./index.module.scss";
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
         <Services/>
         <Solutions/>
         <AboutUs/>
+        <Principles />
         <ContactUs/>
       </main>
       <Footer/>
