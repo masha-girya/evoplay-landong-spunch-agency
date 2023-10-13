@@ -56,6 +56,7 @@ export const Banner = () => {
           This limitless wellspring of knowledge aids in assessing potential
           risks and identifying growth prospects, ultimately fostering a secure
           and prosperous future.
+          {!isMobile && " "}
           {isMobile && (<><br/><br/></>)}
           EVO's comprehensive insights empower users to
           make informed choices that are essential for effective security
