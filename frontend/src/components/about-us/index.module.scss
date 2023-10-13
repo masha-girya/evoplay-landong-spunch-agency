@@ -61,7 +61,7 @@ $pile-position-left: 470px;
     }
 
     @include mixins.devices(tablet) {
-      padding: 60px 16px;
+      padding: 60px 16px 0;
       padding-left: 56px;
       gap: 60px;
     }
