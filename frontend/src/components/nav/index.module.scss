@@ -1,0 +1,50 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.nav {
+  @include mixins.devices(mobile) {
+    display: none;
+  }
+
+  &_mobMenu, &_footer {
+    height: max-content;
+
+    @include mixins.devices(mobile) {
+      display: block;
+    }
+  }
+}
+
+.navList {
+  display: flex;
+  column-gap: 40px;
+
+  @include mixins.devices(mobile) {
+    flex-direction: column;
+    row-gap: 29px;
+
+    &_footer {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    a {
+      transition: color .3s ease-in-out;
+
+      &:hover {
+        color: #4ECDC4;
+      }
+
+      @include mixins.devices(tablet) {
+        &:hover {
+          color: #FFFFFF;
+        }
+      }
+    }
+
+    &_mobMenu {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+}

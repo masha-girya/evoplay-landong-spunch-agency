@@ -1,0 +1,215 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.banner {
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mixins.devices(smallDesk) {
+    min-height: 900px;
+  }
+
+  @include mixins.devices(tablet) {
+    height: calc(100vh - 95px);
+    padding-top: 95px;
+    min-height: calc(639px + 95px);
+  }
+
+  &__imgBox {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+
+    &_mob {
+      display: none;
+      height: 50%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      align-self: flex-end;
+      position: relative;
+      right: 0;
+      height: 235px;
+
+      @include mixins.devices(tablet) {
+        display: flex;
+      }
+    }
+  }
+
+  &__shieldImg {
+    position: absolute;
+    z-index: 2;
+    right: 246px;
+    top: 21%;
+    margin: auto;
+    animation: shieldAnimation 4s linear infinite;
+
+    @include mixins.devices(smallDesk) {
+      width: 100px;
+      bottom: 115px;
+      top: 0;
+      right: 45%;
+    }
+
+    &_mob {
+      margin: 0 auto;
+      width: 115px;
+      display: flex;
+      width: 89px;
+      animation: shieldAnimation 4s linear infinite;
+    }
+  }
+
+  &__robotImg {
+    position: absolute;
+    z-index: 1;
+    right: 0%;
+    top: 50%;
+
+    @include mixins.devices(smallDesk) {
+      width: 100%;
+    }
+
+    &_mob {
+      display: flex;
+      height: 122px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 3;
+    padding-left: 64px;
+
+    @include mixins.devices(smallDesk) {
+      width: 60%;
+    }
+
+    @include mixins.devices(tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 35px;
+      padding-left: 16px;
+      justify-content: space-between;
+      padding-bottom: 60px;
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    button {
+      @include mixins.devices(tablet) {
+        position: relative;
+        left: -9px;
+      }
+    }
+
+    h1 {
+      @include mixins.mainTitle();
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+
+      @include mixins.devices(tablet) {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      color: #ffffff;
+      @include mixins.bodyText();
+      margin-bottom: 40px;
+      max-width: 600px;
+
+      @include mixins.devices(tablet) {
+        padding-right: 16px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.elements {
+  &__circle {
+    position: absolute;
+    z-index: 0;
+    bottom: 37%;
+    left: -30%;
+    width: 1124px;
+    height: 1124px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 245, 0.11);
+
+    @include mixins.devices(tablet) {
+      width: 788px;
+      height: 788px;
+      bottom: 77px;
+      left: -263px;
+    }
+  }
+
+  &__circleBottom {
+    position: absolute;
+    z-index: 0;
+    bottom: -20%;
+    right: -25%;
+    width: 506px;
+    height: 506px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 245, 0.11);
+
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+}
+
+.shadow {
+  &__background {
+    position: absolute;
+    z-index: 0;
+    bottom: -7%;
+    left: 0;
+  
+    @include mixins.devices(tablet) {
+      bottom: -50%;
+      left: 0;
+      opacity: 0.8;
+      width: 100%;
+    }
+  }
+  
+  &__backgroundBottom {
+    position: absolute;
+    z-index: 0;
+    bottom: -100%;
+    right: 0;
+  
+    @include mixins.devices(tablet) {
+      display: none;
+    }
+  }
+}
+
+@keyframes shieldAnimation {
+  0% {
+    transform: rotate3d(0, 0, 0, 15deg);
+  }
+  50% {
+    transform: rotate3d(-10, 20, 0, 25deg) rotate(10deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 15deg);
+  }
+}

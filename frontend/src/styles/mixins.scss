@@ -1,0 +1,135 @@
+@mixin devices($breakpoint) {
+  @if $breakpoint == smallDesk {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 680px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 481px) {
+      @content;
+    }
+  }
+}
+
+@mixin scrollBar {
+  scrollbar-width: thin;
+  scrollbar-color: #FBFBFB #041028;
+  scrollbar-gutter: auto;
+
+  &::-webkit-scrollbar {
+    margin-right: 4px;
+    background: #041028;
+    width: 3px;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #FBFBFB;
+    border-radius: 17px;
+    width: 3px;
+    height: 3px;
+  }
+}
+
+@mixin mainTitle {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: normal;
+
+  @include devices(tablet) {
+    font-size: 30px;
+  }
+}
+
+@mixin blockTitle {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: normal;
+
+  @include devices(tablet) {
+    font-size: 24px;
+  }
+}
+
+@mixin middleTitle {
+
+  @include devices(tablet) {
+  }
+}
+
+@mixin bodyText {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+
+  @include devices(tablet) {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+@mixin nonSelect {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Chrome, Edge, Opera and Firefox */
+}
+
+@mixin border($position) {
+  @if $position == 'bottom' {
+    border-bottom: 1px solid;
+  }
+
+  @if $position == 'top' {
+    border-top: 1px solid;
+  }
+
+  @if $position == 'full' {
+    border: 1px solid;
+  }
+
+  border-image-source: linear-gradient(96.56deg, #EF9CDA 0%, #121A6F 61.98%, #89A1EF 100%);
+  border-image-slice: 1; /* Slice the image into 9 equal parts */
+  border-image-width: 1; /* Set the width of the border */
+  border-image-repeat: stretch; /* Stretch the image to fill the border */
+}
+
+@mixin borderRounded($border-radius) {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border-radius: $border-radius;
+    background-image: linear-gradient(
+      96.56deg,
+      #EF9CDA 0%,
+      #121A6F 61.98%,
+      #89A1EF 100%
+    );
+  }
+}
+
+@mixin circleBackground {
+  position: absolute;
+  z-index: 0;
+  width: 707px;
+  height: 707px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 245, 245, 0.11);
+
+  @include devices(tablet) {
+    width: 517.536px;
+    height: 517.536px;
+  }
+}

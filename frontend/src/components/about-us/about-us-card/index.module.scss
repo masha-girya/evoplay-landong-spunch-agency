@@ -1,0 +1,102 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.aboutUsCard {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 180px;
+  width: 100%;
+  transition: all .2s ease-in;
+  cursor: pointer;
+
+  @include mixins.devices(smallDesk) {
+    gap: 60px;
+  }
+
+  @include mixins.devices(tablet) {
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    @include mixins.mainTitle();
+    opacity: 50%;
+    text-align: end;
+    transition: all .2s ease-in;
+
+    @include mixins.devices(smallDesk) {
+      width: 30%;
+    }
+
+    @include mixins.devices(tablet) {
+      width: auto;
+      text-align: start;
+    }
+  }
+
+  p {
+    opacity: 50%;
+    width: 510px;
+    @include mixins.bodyText();
+    transition: all .2s ease-in;
+
+    @include mixins.devices(smallDesk) {
+      width: 70%;
+    }
+
+    @include mixins.devices(tablet) {
+      width: 100%;
+    }
+  }
+
+  &_main {
+    transform: scale(1.01);
+    p, h1 {
+      opacity: 100%;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: max-content;
+
+  &__circleBox {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    left: calc(367px - 10px);
+    top: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+          96.56deg,
+          #EF9CDA 0%,
+          #121A6F 61.98%,
+          #89A1EF 100%
+        );
+    border-radius: 50%;
+
+    @include mixins.devices(smallDesk) {
+      left: 30%;
+    }
+
+    @include mixins.devices(tablet) {
+      left: -40px;
+      top: 10px;
+    }
+
+    &__circle {
+      position: relative;
+      z-index: 3;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #041028;
+    }
+  }
+}

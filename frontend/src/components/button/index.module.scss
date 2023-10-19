@@ -1,0 +1,190 @@
+@use "src/styles/mixins.scss" as mixins;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+
+  outline: none;
+
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+
+  &__name {
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: normal;
+    transition: all ease-in-out 0.2s;
+
+    &_invisible {
+      visibility: hidden;
+    }
+  }
+
+  &--primary {
+    width: max-content;
+    height: 53px;
+    padding: 16.8px 40px;
+    border-radius: 10px;
+    background: #4ECDC4;
+
+    &__name {
+      font-weight: 500;
+      color: #0A0A0B;
+    }
+
+    &_fullWidthMob {
+      @include mixins.devices(tablet) {
+        width: 100%;
+      }
+    }
+
+    &:hover, &:active, &_active {
+      box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
+    }
+
+    @include mixins.devices(tablet) {
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--middle {
+    padding: 20px 50px;
+    border-radius: 10px;
+    background: #4ECDC4;
+
+    &__name {
+      color: #0A0A0B;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &:hover, &:active, &_active {
+      box-shadow: 0px 4px 46px 0px rgba(78, 205, 196, 0.50);
+    }
+
+    @include mixins.devices(tablet) {
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--secondary {
+    width: max-content;
+    height: 46px;
+    width: 110px;
+    padding: 16.8px 40px;
+    border-radius: 10px;
+    border: 1px solid #4ECDC4;
+    background: transparent;
+
+    &__name {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    &:hover, &:active, &_active {
+      background: #4ECDC4;
+
+      .button--secondary__name {
+        color: #000;
+      }
+    }
+  }
+
+  &--textMain {
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+
+    &__name {
+      color: #EDEFFB;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &:hover, &:active, &_active {
+      border-bottom-color: #4ECDC4;
+
+      .button--textMain__name {
+        color: #4ECDC4;
+      }
+    }
+
+    @include mixins.devices(tablet) {
+      &:hover {
+        border-bottom-color: transparent;
+
+        .button--textMain__name {
+          color: #4ECDC4;
+        }
+      }
+    }
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+
+    position: absolute;
+    left: 50%;
+    top: 73%;
+    transform: translate(-50%, -50%);
+    animation: shadowLoading 1.5s infinite ease-in-out;
+    //shadow
+    box-shadow: 0 -15px 0 0px #272727, -15px -15px 0 #272727,
+    15px -15px 0 #272727;
+
+    @keyframes shadowLoading {
+      0%,
+      100% {
+        box-shadow: 0 -15px 0 -5px #D5E68D,
+        -15px -15px 0 -5px #D5E68D,
+        15px -15px 0 -5px #D5E68D;
+      }
+      25% {
+        box-shadow: 0 -15px 0 -5px #D5E68D,
+        -15px -15px 0 0 #272727,
+        15px -15px 0 -5px #D5E68D;
+      }
+      50% {
+        box-shadow: 0 -15px 0 0 #272727,
+        -15px -15px 0 -2px #272727,
+        15px -15px 0 -5px #D5E68D;
+      }
+      75% {
+        box-shadow: 0 -15px 0 -2px #272727,
+        -15px -15px 0 -2px #272727,
+        15px -15px 0 0 #272727;
+      }
+    }
+  }
+}
