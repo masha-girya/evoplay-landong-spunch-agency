@@ -4,6 +4,9 @@ import CorporateImg from "@components/services/assets/Corporate.png";
 import AImg from "@components/solutions/assets/VPN.png";
 import BImg from "@components/solutions/assets/Phone.png";
 import CImg from "@components/solutions/assets/Notebook.png";
+import { REQ_STATUS } from "src/services/api-types";
+
+export const API_REQUEST_ENDPOINT = process.env.NEXT_PUBLIC_REQUEST_ENDPOINT;
 
 export const NAV = [
   {
@@ -83,4 +86,10 @@ export const ABOUT_US = [
     title: "Our Vision",
     text: "Lorem ipsum dolor sit amet consectetur. Sed tincidunt aliquet purus dignissim amet id velit euismod. Mauris posuere amet dignissim ornare. Adipiscing at turpis id praesent eu penatibus egestas risus. Montes tellus viverra faucibus viverra pellentesque hendrerit."
   },
-]
+];
+
+export const REQUEST_STATUS = {
+  [REQ_STATUS.failed]: "Request failed, please, check out inputs and try again",
+  [REQ_STATUS.success]: "Your application has been successfully sent!",
+  [REQ_STATUS.lackData]: "Please, enter your name and email",
+}

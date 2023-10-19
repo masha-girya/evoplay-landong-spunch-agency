@@ -1,6 +1,9 @@
 @use "src/styles/mixins.scss" as mixins;
 
 $border-radius: 10px;
+.container {
+  position: relative;
+}
 
 .inputBox {
   width: 100%;
@@ -34,4 +37,11 @@ $border-radius: 10px;
     font-weight: 400;
     opacity: 1;
   }
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  // bottom: -16px;
+  @include mixins.errorText(1px);
 }

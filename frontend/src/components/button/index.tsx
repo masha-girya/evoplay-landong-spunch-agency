@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 
 export interface IButton {
   variant?: "primary" | "middle" | "secondary" | "textMain";
+  type?: "button" | "submit";
   name?: string;
   onClick: () => void;
   disabled?: boolean;
@@ -15,6 +16,7 @@ export interface IButton {
 export const Button: React.FC<IButton> = (props) => {
   const {
     variant = "primary",
+    type = "button",
     name,
     disabled,
     isOnLoad,
@@ -25,7 +27,7 @@ export const Button: React.FC<IButton> = (props) => {
 
   return (
     <button
-      type="button"
+      type={type}
       disabled={disabled}
       onClick={onClick}
       className={classNames(styles.button, {
