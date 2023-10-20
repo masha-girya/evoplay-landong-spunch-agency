@@ -15,7 +15,7 @@ export const SolutionCard: React.FC<ISolutionCard> = (props) => {
   return (
     <section className={styles.solutionCard}>
       <div
-        className={classNames(styles.solutionCard__textBox, {
+        className={classNames(styles.solutionCard__textBox, [styles[`solutionCard__textBox_${letter}`]], {
           [styles.solutionCard__textBox_even]: isEven,
         })}
       >

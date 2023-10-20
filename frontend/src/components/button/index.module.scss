@@ -121,16 +121,6 @@
         color: #4ECDC4;
       }
     }
-
-    @include mixins.devices(tablet) {
-      &:hover {
-        border-bottom-color: transparent;
-
-        .button--textMain__name {
-          color: #4ECDC4;
-        }
-      }
-    }
   }
 
   &_disabled {

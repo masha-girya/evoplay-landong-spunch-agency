@@ -4,7 +4,6 @@ import styles from "./index.module.scss";
 import AIImg from "./assets/AI.png";
 
 export const Solutions = () => {
-
   return (
     <article className={styles.solutions}>
       <span id={NAV[0].link} className={styles.anchor}></span>

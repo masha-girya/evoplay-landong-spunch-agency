@@ -18,14 +18,18 @@
     justify-content: center;
     column-gap: 20px;
     margin-bottom: 41px;
+    position: relative;
+    z-index: 3;
 
     @include mixins.devices(mobile) {
+      column-gap: 30px;
       padding-left: 24px;
       justify-content: flex-start;
       max-width: 100%;
       overflow-x: auto;
       -ms-overflow-style: none; /* Internet Explorer 10+ */
       scrollbar-width: none; /* Firefox */
+
       &::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
       }
@@ -33,14 +37,15 @@
   }
 
   &__generalContent {
-    width: 82%;
+    width: 100%;
+    padding: 0 88px 0 22px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @include mixins.devices(tablet) {
-      width: 100%;
+      padding: 0;
       flex-direction: column;
     }
 
@@ -57,26 +62,29 @@
         margin-bottom: 40px;
 
         @include mixins.devices(tablet) {
+          padding: 0 15px;
+          width: 100%;
           display: inline;
         }
       }
     }
 
     &__text {
-      max-width: 572px;
+      max-width: 634px;
       width: 60%;
 
       @include mixins.devices(tablet) {
         order: 2;
         width: 100%;
         max-width: 100%;
-        padding: 0 16px;
+        padding: 0 15px;
       }
 
       &__pBox {
         display: flex;
         flex-direction: column;
         row-gap: 24px;
+        max-width: 572px;
 
         p {
           @include mixins.bodyText();

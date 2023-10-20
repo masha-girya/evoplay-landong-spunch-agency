@@ -29,13 +29,15 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
   const getRefPosition = useCallback(
     (ref: any) => {
       const refHeight = ref.current.getBoundingClientRect().height;
-      const gap = isMobile || isTablet ? 120 : 180;
+      const gap = isMobile || isTablet ? 60 : 180;
       const padding = isDesktop ? 83 : 60;
 
       const renderPixels = () => {
-        const isWebkit = /(safari|chrome)/.test(navigator.userAgent.toLowerCase());
-        if(!isWebkit) {
-          switch(window.innerWidth) {
+        const isWebkit = /(safari|chrome)/.test(
+          navigator.userAgent.toLowerCase()
+        );
+        if (!isWebkit) {
+          switch (window.innerWidth) {
             case 1599:
             case 1600:
             case 1900:
@@ -64,7 +66,7 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
       if (ref.current && refCircle.current) {
         const { refHeight, first, firstMob, gap } = getRefPosition(ref);
 
-        const breakpoint1 = (isMobile || isTablet) ? firstMob : first;
+        const breakpoint1 = isMobile || isTablet ? firstMob : first;
         const breakpoint2 = refHeight + breakpoint1 + gap;
         const breakpoint3 = refHeight + breakpoint2 + gap;
 
@@ -78,10 +80,10 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
             break;
           case 2:
           case 100:
-            setTop(breakpoint3);
+            isDesktop ? setTop(breakpoint3 + 9) : setTop(breakpoint3);
             break;
           default:
-            setTop((prev: number) => prev);
+            break;
         }
       }
     },
@@ -94,11 +96,8 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
         behavior: "smooth",
         block: "center",
       });
-
-      setMainItemIndex(index);
-      changeTopPosition(index);
     }
-  }, [ref, index, isMobile, isTablet, isDesktop]);
+  }, [ref]);
 
   useEffect(() => {
     if (ref.current) {
@@ -127,7 +126,12 @@ export const AboutUsCard: React.FC<IAboutUsCard> = (props) => {
 
   return (
     <div className={styles.container} ref={ref}>
-      <div className={styles.container__circleBox} ref={refCircle}>
+      <div
+        className={classNames(styles.container__circleBox, {
+          [styles.container__circleBox_last]: index === 2,
+        })}
+        ref={refCircle}
+      >
         <div className={styles.container__circleBox__circle}></div>
       </div>
       <section

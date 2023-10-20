@@ -54,17 +54,18 @@
     &__text {
       position: relative;
       z-index: 2;
-      max-width: 540px;
       animation: fadeIn 0.3s ease-in;
 
       h1 {
         @include mixins.blockTitle();
+        max-width: 652px;
         text-align: center;
         margin-bottom: 20px;
       }
 
       p {
         @include mixins.bodyText();
+        max-width: 539px;
         text-align: center;
       }
     }
