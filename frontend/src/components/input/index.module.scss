@@ -1,8 +1,10 @@
 @use "src/styles/mixins.scss" as mixins;
 
 $border-radius: 10px;
+
 .container {
   position: relative;
+  width: 100%;
 }
 
 .inputBox {
